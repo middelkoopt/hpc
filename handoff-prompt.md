@@ -22,6 +22,21 @@ how docs are placed and how content migrates between 3.x and 4.x given the coord
 
 ---
 
+## Sub-Repo Branch State
+
+| Repo | Branch |
+| ---- | ------ |
+| `ohpc-3.x/` | `tm-openeuler-openpbs-3.x` |
+| `ohpc-4.x/` | `main` (or upstream default) |
+| `warewulf/` | personal working branch (check before starting) |
+| `warewulf-node-images/` | personal working branch (check before starting) |
+| `hpc-lab/` | `main` |
+
+**Always verify branches before working** — wrong branch was the root cause of a session
+confusion (2026-05-08).
+
+---
+
 ## Last Session Summary (2026-05-08)
 
 Set up the `~/projects/hpc/` workspace coordinator. Repos cloned in:
@@ -50,14 +65,16 @@ Coordinator files written: `CLAUDE.md`, `PROCESS.md`, `handoff-prompt.md`,
 
 ## Key Rules (carry from previous session)
 
-**hpc-lab (infrastructure)**
+hpc-lab (infrastructure):
+
 - Only fix the one `tests/` script matching the current run — never bulk-patch; user
   backports upstream separately
 - Do NOT run `create.sh`, `create-net.sh`, `delete.sh`, `delete-net.sh` without confirmation
 - Do NOT push Terraform state files or `local.tfvars`
 - `config/run.ini` is TOML, not INI — tomllib parses it
 
-**upstream repos (ohpc-3.x, ohpc-4.x, warewulf, warewulf-node-images)**
+upstream repos (ohpc-3.x, ohpc-4.x, warewulf, warewulf-node-images):
+
 - Never commit to upstream tracking branches without going through upstream review / PR
 
 ---

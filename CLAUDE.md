@@ -37,6 +37,8 @@ User is an active Warewulf developer; the `middelkoopt` remote is the personal f
 ## Key Docs
 
 - `docs/workspace-design.md` — why this structure exists, the coordinator pattern
+- `docs/ohpc-docs-system.md` — mkdoc.py architecture, build commands, key patterns, conventions
+- `docs/ohpc-3x-status.md` — 3.x branch status, recipe matrix, key decisions
 - `hpc-lab/CLAUDE.md` — full infrastructure project context
 - `hpc-lab/docs/` — infrastructure reference docs (proxy, warewulf bugs, cloud setup, etc.)
 - `ohpc-3.x/docs/install/DESIGN.md` — OpenHPC markdown docs system design (active branch)
