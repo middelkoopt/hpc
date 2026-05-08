@@ -14,11 +14,11 @@ before I start?" Do not open files or grep until the user has had a chance to sh
 ## Active Work
 
 **Infrastructure / recipe testing** — see `hpc-lab/handoff-prompt.md` for current state.
-Last confirmed working: leap-15 / warewulf3 / slurm — committed (2026-05-08).
+Last confirmed working: leap-15 / warewulf3 / openpbs — confirmed (2026-05-08).
 Last run command: `./run.py --target=leap-15 --provisioner=warewulf3`
 
-**OpenHPC docs** — active work in `ohpc-3.x/docs/install/` (3.x branch). Need to decide
-how docs are placed and how content migrates between 3.x and 4.x given the coordinator move.
+**OpenHPC docs** — active work in `ohpc-3.x/docs/install/` (3.x branch `tm-openeuler-openpbs-3.x`).
+Next: openeuler-22.03 / warewulf3 / openpbs — recipe exists, not yet tested.
 
 ---
 
@@ -38,6 +38,28 @@ confusion (2026-05-08).
 ---
 
 ## Last Session Summary (2026-05-08)
+
+### Session 2 (2026-05-08) — leap15/openpbs fix + workflow corrections
+
+leap-15 / warewulf3 / openpbs confirmed working.
+
+ohpc-3.x fix committed to `tm-openeuler-openpbs-3.x`:
+
+- `compute-install-scheduler.md.j2`: add `echo "${sms_ip} ${sms_name}" >> $CHROOT/etc/hosts`
+  before `pbs_habitat` call, inside `{% if is_sles %}` guard. SUSE chroot `/etc/hosts` only has
+  localhost entries — `pbs_habitat` can't resolve `PBS_SERVER=head` without this. EL chroots
+  work without it due to different nsswitch/hosts defaults.
+
+Workflow corrections (docs + memory updated):
+
+- `tests/` scripts are generated artifacts — edits always go in templates, rebuild+copy, then run.
+  `git diff tests/` (from `hpc-lab/`) after rebuild is the review step — user commits a clean
+  `tests/` baseline before a debugging session.
+- Removed the "fix tests/ directly, user backports separately" rule — artifact of disconnected
+  sessions, no longer applicable now that ohpc-3.x and hpc-lab are co-located.
+- 3.x fixes do not port forward to 4.x in-session — user handles manually.
+
+### Session 1 (2026-05-08) — SUSE bring-up
 
 almalinux-9 / warewulf3 / openpbs confirmed working.
 leap-15 / warewulf3 / slurm working — first SUSE target.
@@ -65,7 +87,7 @@ Proxy: no changes needed — `/repodata/` no-cache rule already covers zypper me
 
 ## Pending (hpc-lab)
 
-- Run leap-15 + warewulf3 + openpbs (slurm done; openpbs not yet tested)
+- openeuler-22.03 / warewulf3 / openpbs — next test target
 - openeuler-24.03: only warewulf+slurm in tests/; no openchami/confluent — is this intentional?
 - openEuler 4.x: COPR SP3 publish pending upstream (needed for yq); see `hpc-lab/docs/openeuler.md`
 - 3.x OBS: enable by setting `obs_minor = "3.4"` in branch-3 EL targets in `run.ini` if needed
@@ -78,8 +100,8 @@ Proxy: no changes needed — `/repodata/` no-cache rule already covers zypper me
 
 hpc-lab (infrastructure):
 
-- Only fix the one `tests/` script matching the current run — never bulk-patch; user
-  backports upstream separately
+- `tests/` scripts are generated — fix goes in `ohpc-3.x/docs/install/templates/`, rebuild+copy;
+  patching `tests/` directly is only a temporary debug shortcut
 - Do NOT run `create.sh`, `create-net.sh`, `delete.sh`, `delete-net.sh` without confirmation
 - Do NOT push Terraform state files or `local.tfvars`
 - `config/run.ini` is TOML, not INI — tomllib parses it
@@ -87,6 +109,7 @@ hpc-lab (infrastructure):
 upstream repos (ohpc-3.x, ohpc-4.x, warewulf, warewulf-node-images):
 
 - Never commit to upstream tracking branches without going through upstream review / PR
+- 3.x fixes do not need to be ported to 4.x in-session — user handles backports manually
 
 ---
 
@@ -105,6 +128,13 @@ Zypper metadata (under `/repodata/`) is already excluded from caching — no SUS
 - No `needs-restarting` — kernel reboot detection via `rpm -q --last kernel-default` vs `uname -r`
 - `SuSEfirewall2` may not be installed on newer images — disable/stop guarded with `|| true`
 
+**SUSE / Leap 15 chroot + OpenPBS**:
+
+- `pbs_habitat` (run in chroot) needs `PBS_SERVER` hostname to be resolvable inside the chroot.
+  SUSE chroot `/etc/hosts` only has localhost — add `${sms_ip} ${sms_name}` to `$CHROOT/etc/hosts`
+  before calling `pbs_habitat`. Fixed in `compute-install-scheduler.md.j2` under `{% if is_sles %}`.
+  EL chroots work without this due to different nsswitch/hosts defaults.
+
 ---
 
 ## Infrastructure State
@@ -122,11 +152,11 @@ Zypper metadata (under `/repodata/`) is already excluded from caching — no SUS
 ```bash
 # Infrastructure work
 cd ~/projects/hpc/hpc-lab
-./run.py --target=leap-15 --provisioner=warewulf3   # last active run
+./run.py --target=openeuler-22.03 --provisioner=warewulf3   # next target (openpbs)
 
 # OpenHPC docs (active: 3.x branch)
 cd ~/projects/hpc/ohpc-3.x/docs/install
-make
+make PYTHON=.venv/bin/python && cp -v build/*.sh ../../../hpc-lab/tests/
 
 # Warewulf
 cd ~/projects/hpc/warewulf
