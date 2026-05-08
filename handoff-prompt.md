@@ -14,6 +14,8 @@ before I start?" Do not open files or grep until the user has had a chance to sh
 ## Active Work
 
 **Infrastructure / recipe testing** — see `hpc-lab/handoff-prompt.md` for current state.
+Last confirmed working: openEuler 22.03 / warewulf3 / aarch64 / qemu (2026-05-07).
+Last run command: `./run.py --target=openeuler-22.03 --provisioner=warewulf3`
 
 **Cross-cutting / design** — none in progress.
 
@@ -27,20 +29,54 @@ Coordinator files written: `CLAUDE.md`, `PROCESS.md`, `handoff-prompt.md`,
 `hpc.code-workspace`, `docs/workspace-design.md`.
 
 `ohpc-jetstream2` is now historical (tm-dev removed). Active infra work continues in `hpc-lab/`.
+`hpc-lab` was split from `ohpc-jetstream2/tm-dev` — 220 commits beyond main.
 
 ---
 
-## Pending
+## Pending (hpc-lab)
 
-- [x] Update `hpc-lab/` remote from `ohpc-jetstream2` → `middelkoopt/hpc-lab`
-- [x] Update `hpc-lab/CLAUDE.md` header (still says "ohpc-jetstream2")
-- [x] Push coordinator to `middelkoopt/hpc`
-- [x] Push `hpc-lab/tm-dev` as `main` to `middelkoopt/hpc-lab`
+- Remove `test-recipe-patch.sed` entries as upstream gains `has_*` guards
+- Split `clouds/jetstream/openstack.tf` → `network.tf` + `compute.tf`
+- **PRIORITY**: Move `obs_family`/`OHPC_OBS_FAMILY` into `[target.*]` in `run.ini` once
+  a second consumer exists (TODO at `scripts/test-recipe-config-4.sh:58`)
+- `virtio_pci` fix in `tests/rocky9-aarch64-warewulf3-slurm.sh` and
+  `tests/openeuler22.03-aarch64-warewulf3-slurm.sh` (`modprobe += virtio_pci, virtio_net`)
+- openEuler: Warewulf base image needs SP3 rebuild; OpenHPC COPR needs SP3 publish
+  (see `hpc-lab/docs/openeuler.md`)
+- Add sles target when ready
+
+---
+
+## Key Rules (carry from previous session)
+
+**hpc-lab (infrastructure)**
+- Only fix the one `tests/` script matching the current run — never bulk-patch; user
+  backports upstream separately
+- Do NOT run `create.sh`, `create-net.sh`, `delete.sh`, `delete-net.sh` without confirmation
+- Do NOT push Terraform state files or `local.tfvars`
+- `config/run.ini` is TOML, not INI — tomllib parses it
+- **CRITICAL**: dnf5/libcurl on AlmaLinux 10 only reads LOWERCASE `http_proxy`/`https_proxy`
+
+**upstream repos (ohpc-3.x, ohpc-4.x, warewulf, warewulf-node-images)**
+- Never commit to upstream tracking branches without going through upstream review / PR
+
+---
+
+## Known Bugs / Quirks
+
+**Warewulf BIOS DHCP bug** — upstream fix needed; workaround in
+`hpc-lab/tests/rocky10-x86_64-warewulf-slurm.sh`. See `hpc-lab/docs/warewulf-bios-dhcp-bug.md`.
+
+**Proxy (mitmproxy)** — `hpc-lab/proxy/start-proxy.sh` / `stop-proxy.sh` writes/removes
+`proxy/local.env`. Full reference: `hpc-lab/docs/proxy.md`.
 
 ---
 
 ## Infrastructure State
 
+- **Local**: macOS aarch64, qemu via `hpc-lab/clouds/qemu/` — primary aarch64 test platform
+- **Remote x86_64 qemu**: `jetstream.ini200001.projects.jetstream-cloud.org`
+  - iPXE ROM path: `/usr/lib/ipxe/qemu/efi-virtio.rom` (Ubuntu/Debian, not `/usr/share/`)
 - Proxy: unknown — check `hpc-lab/proxy/local.env`
 - Cloud VMs: none running (last known state)
 
