@@ -17,7 +17,8 @@ before I start?" Do not open files or grep until the user has had a chance to sh
 Last confirmed working: openEuler 22.03 / warewulf3 / aarch64 / qemu (2026-05-07).
 Last run command: `./run.py --target=openeuler-22.03 --provisioner=warewulf3`
 
-**Cross-cutting / design** — none in progress.
+**OpenHPC docs** — active work in `ohpc-3.x/docs/install/` (3.x branch). Need to decide
+how docs are placed and how content migrates between 3.x and 4.x given the coordinator move.
 
 ---
 
@@ -55,7 +56,6 @@ Coordinator files written: `CLAUDE.md`, `PROCESS.md`, `handoff-prompt.md`,
 - Do NOT run `create.sh`, `create-net.sh`, `delete.sh`, `delete-net.sh` without confirmation
 - Do NOT push Terraform state files or `local.tfvars`
 - `config/run.ini` is TOML, not INI — tomllib parses it
-- **CRITICAL**: dnf5/libcurl on AlmaLinux 10 only reads LOWERCASE `http_proxy`/`https_proxy`
 
 **upstream repos (ohpc-3.x, ohpc-4.x, warewulf, warewulf-node-images)**
 - Never commit to upstream tracking branches without going through upstream review / PR
@@ -89,8 +89,8 @@ Coordinator files written: `CLAUDE.md`, `PROCESS.md`, `handoff-prompt.md`,
 cd ~/projects/hpc/hpc-lab
 ./run.py --target=openeuler-22.03 --provisioner=warewulf3   # last active run
 
-# OpenHPC docs
-cd ~/projects/hpc/ohpc-4.x/docs/install
+# OpenHPC docs (active: 3.x branch)
+cd ~/projects/hpc/ohpc-3.x/docs/install
 make
 
 # Warewulf

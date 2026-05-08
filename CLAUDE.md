@@ -27,9 +27,9 @@ Work on personal branches and submit PRs.
 **Infrastructure / recipe testing** → work inside `hpc-lab/`; read `hpc-lab/CLAUDE.md`
 and `hpc-lab/PROCESS.md` for full context. Resume with `hpc-lab/handoff-prompt.md`.
 
-**OpenHPC docs / design** → work inside `ohpc-4.x/docs/install/` (primary) or
-`ohpc-3.x/docs/install/`. Key design doc: `ohpc-4.x/docs/install/DESIGN.md` (or
-`ohpc-3.x/docs/install/DESIGN.md`). The markdown doc system uses `mkdoc.py` + Makefile.
+**OpenHPC docs / design** → active work in `ohpc-3.x/docs/install/` (3.x branch).
+`ohpc-4.x/docs/install/` is the 4.x counterpart. Key design doc: `DESIGN.md` in whichever
+branch is active. The markdown doc system uses `mkdoc.py` + Makefile.
 
 **Warewulf contribution** → work inside `warewulf/` and `warewulf-node-images/`.
 User is an active Warewulf developer; the `middelkoopt` remote is the personal fork.
@@ -39,9 +39,11 @@ User is an active Warewulf developer; the `middelkoopt` remote is the personal f
 - `docs/workspace-design.md` — why this structure exists, the coordinator pattern
 - `hpc-lab/CLAUDE.md` — full infrastructure project context
 - `hpc-lab/docs/` — infrastructure reference docs (proxy, warewulf bugs, cloud setup, etc.)
-- `ohpc-4.x/docs/install/DESIGN.md` — OpenHPC markdown docs system design
+- `ohpc-3.x/docs/install/DESIGN.md` — OpenHPC markdown docs system design (active branch)
+- `ohpc-4.x/docs/install/DESIGN.md` — same system, 4.x branch
 
 ## Pending
 
 - `hpc-lab/` remote still points to `ohpc-jetstream2` — needs updating to `middelkoopt/hpc-lab`
 - `hpc-lab/CLAUDE.md` header still says "ohpc-jetstream2" — update when convenient
+- Docs placement and content migration strategy between `ohpc-3.x` and `ohpc-4.x`
