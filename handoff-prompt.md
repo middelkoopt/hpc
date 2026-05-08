@@ -14,7 +14,8 @@ before I start?" Do not open files or grep until the user has had a chance to sh
 ## Active Work
 
 **Infrastructure / recipe testing** — see `hpc-lab/handoff-prompt.md` for current state.
-Last confirmed working: openEuler 22.03 / warewulf3 / aarch64 / qemu (2026-05-07).
+Last confirmed working: openEuler 22.03 / warewulf3 / openpbs — fix committed (2026-05-08).
+Next: run rocky-9 and almalinux-9 with warewulf3+openpbs (same fix likely applies); then leap-15.
 Last run command: `./run.py --target=openeuler-22.03 --provisioner=warewulf3`
 
 **OpenHPC docs** — active work in `ohpc-3.x/docs/install/` (3.x branch). Need to decide
@@ -39,26 +40,26 @@ confusion (2026-05-08).
 
 ## Last Session Summary (2026-05-08)
 
-Set up the `~/projects/hpc/` workspace coordinator. Repos cloned in:
-`hpc-lab/`, `ohpc-3.x/`, `ohpc-4.x/`, `warewulf/`, `warewulf-node-images/`.
-Coordinator files written: `CLAUDE.md`, `PROCESS.md`, `handoff-prompt.md`,
-`hpc.code-workspace`, `docs/workspace-design.md`.
-
-`ohpc-jetstream2` is now historical (tm-dev removed). Active infra work continues in `hpc-lab/`.
-`hpc-lab` was split from `ohpc-jetstream2/tm-dev` — 220 commits beyond main.
+OpenPBS fix committed and confirmed working on openEuler 22.03 / warewulf3.
+virtio_pci fix integrated. Warewulf base image rebuilt for SP3.
+Cleaned up `scripts/test-recipe-patch.sed` (removed merged warewulf VNFS line).
+OBS repo setup moved from `test-recipe-config-*.sh` into `test-recipe-head-setup.sh`.
+`obs_minor` added to all `[target.*]` in `run.ini`; set to `"4.1"` for branch-4 EL targets,
+`""` for all others. Setting `obs_minor` enables the OBS repo; blank disables it.
+COPR: not needed for 3.x (removed upstream); still needed for 4.x openeuler (provides yq);
+SP3 publish for 24.03 LTS still pending upstream.
 
 ---
 
 ## Pending (hpc-lab)
 
-- Remove `test-recipe-patch.sed` entries as upstream gains `has_*` guards
+- Run rocky-9 + warewulf3 + openpbs — same fix as openeuler; verify it applies cleanly
+- Run almalinux-9 + warewulf3 + openpbs — same
+- Run leap-15 + warewulf3 + openpbs
+- openeuler-24.03: only warewulf+slurm in tests/; no openchami/confluent — is this intentional?
+- openEuler 4.x: COPR SP3 publish pending upstream (needed for yq); see `hpc-lab/docs/openeuler.md`
+- 3.x OBS: enable by setting `obs_minor = "3.4"` in branch-3 EL targets in `run.ini` if needed
 - Split `clouds/jetstream/openstack.tf` → `network.tf` + `compute.tf`
-- **PRIORITY**: Move `obs_family`/`OHPC_OBS_FAMILY` into `[target.*]` in `run.ini` once
-  a second consumer exists (TODO at `scripts/test-recipe-config-4.sh:58`)
-- `virtio_pci` fix in `tests/rocky9-aarch64-warewulf3-slurm.sh` and
-  `tests/openeuler22.03-aarch64-warewulf3-slurm.sh` (`modprobe += virtio_pci, virtio_net`)
-- openEuler: Warewulf base image needs SP3 rebuild; OpenHPC COPR needs SP3 publish
-  (see `hpc-lab/docs/openeuler.md`)
 - Add sles target when ready
 
 ---
