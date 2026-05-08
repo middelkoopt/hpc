@@ -32,10 +32,10 @@ Coordinator files written: `CLAUDE.md`, `PROCESS.md`, `handoff-prompt.md`,
 
 ## Pending
 
-- [ ] Update `hpc-lab/` remote from `ohpc-jetstream2` → `middelkoopt/hpc-lab`
-- [ ] Update `hpc-lab/CLAUDE.md` header (still says "ohpc-jetstream2")
-- [ ] Push coordinator to `middelkoopt/hpc` (Phase C of migration plan)
-- [ ] Push `hpc-lab/tm-dev` as `main` to `middelkoopt/hpc-lab` (Phase C)
+- [x] Update `hpc-lab/` remote from `ohpc-jetstream2` → `middelkoopt/hpc-lab`
+- [x] Update `hpc-lab/CLAUDE.md` header (still says "ohpc-jetstream2")
+- [x] Push coordinator to `middelkoopt/hpc`
+- [x] Push `hpc-lab/tm-dev` as `main` to `middelkoopt/hpc-lab`
 
 ---
 
