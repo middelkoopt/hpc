@@ -1,0 +1,10 @@
+{
+  "folders": [
+    { "name": "hpc (coordinator)", "path": "." },
+    { "name": "hpc-lab",           "path": "hpc-lab" },
+    { "name": "ohpc-3.x",          "path": "ohpc-3.x" },
+    { "name": "ohpc-4.x",          "path": "ohpc-4.x" },
+    { "name": "warewulf",          "path": "warewulf" },
+    { "name": "warewulf-node-images", "path": "warewulf-node-images" }
+  ]
+}
