@@ -14,11 +14,11 @@ before I start?" Do not open files or grep until the user has had a chance to sh
 ## Active Work
 
 **Infrastructure / recipe testing** — see `hpc-lab/handoff-prompt.md` for current state.
-Last confirmed working: leap-15 / warewulf3 / openpbs — confirmed (2026-05-08).
-Last run command: `./run.py --target=leap-15 --provisioner=warewulf3`
+Last confirmed working: leap-15 / warewulf3 / openpbs, openeuler-22.03 / warewulf3 / openpbs — confirmed (2026-05-12).
+Last run command: `./run.py --target=openeuler-22.03 --provisioner=warewulf3`
 
 **OpenHPC docs** — active work in `ohpc-3.x/docs/install/` (3.x branch `tm-openeuler-openpbs-3.x`).
-Next: openeuler-22.03 / warewulf3 / openpbs — recipe exists, not yet tested.
+Next: determine next test target — openeuler-22.03/openpbs and leap-15/openpbs both confirmed working.
 
 ---
 
