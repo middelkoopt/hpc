@@ -13,12 +13,23 @@ before I start?" Do not open files or grep until the user has had a chance to sh
 
 ## Active Work
 
-**Infrastructure / recipe testing** — see `hpc-lab/handoff-prompt.md` for current state.
-Last confirmed working: leap-15 / warewulf3 / openpbs, openeuler-22.03 / warewulf3 / openpbs — confirmed (2026-05-12).
-Last run command: `./run.py --target=openeuler-22.03 --provisioner=warewulf3`
+**warewulf 4.7.0 test run — FAILING.** Bugs from the upgrade changes; not yet diagnosed.
+Last run: `./run.py --target=rocky-9 --provisioner=warewulf` (or similar — confirm before starting).
+Next: collect failure logs and debug.
 
-**OpenHPC docs** — active work in `ohpc-3.x/docs/install/` (3.x branch `tm-openeuler-openpbs-3.x`).
-Next: determine next test target — openeuler-22.03/openpbs and leap-15/openpbs both confirmed working.
+**OpenHPC warewulf 4.7.0** — `tm-warewulf-4.7-3.x` (ohpc-3.x and ohpc-4.x). **Uncommitted.**
+Spec fixes this session (on top of 2026-05-18 work):
+
+- Moved `## OHPC:` comment out of `make defaults \` continuation (was silently dropping all args after it)
+- Fixed `mig` overlay ordering to match upstream (`systemd.mount` → `systemd.swap` → `mig`)
+- Added `## OHPC: upstream %%changelog removed` at end of spec
+
+RPM builds successfully (`warewulf-ohpc-4.7.0-19999.ci.ohpc.aarch64.rpm` in `hpc-lab/data/`).
+Next: debug test run failures, then commit.
+
+**Warewulf upstream** — branch `tm-dsa-8.x`: DSA removed from default ssh key types. **PR submitted.**
+hosts.ww `.localdomain` — OHPC carries hardcoded patch; upstream fix requires a `domain` config field
+in `warewulf.conf` so `hosts.ww` can emit a site-specific FQDN alias. No upstream PR until that is designed.
 
 ---
 
@@ -26,14 +37,64 @@ Next: determine next test target — openeuler-22.03/openpbs and leap-15/openpbs
 
 | Repo | Branch |
 | ---- | ------ |
-| `ohpc-3.x/` | `tm-openeuler-openpbs-3.x` |
-| `ohpc-4.x/` | `main` (or upstream default) |
-| `warewulf/` | personal working branch (check before starting) |
+| `ohpc-3.x/` | `tm-warewulf-4.7-3.x` |
+| `ohpc-4.x/` | `tm-warewulf-4.7-3.x` (same changes applied) |
+| `warewulf/` | `tm-dsa-8.x` (PR submitted) |
 | `warewulf-node-images/` | personal working branch (check before starting) |
 | `hpc-lab/` | `main` |
 
 **Always verify branches before working** — wrong branch was the root cause of a session
 confusion (2026-05-08).
+
+---
+
+## Last Session Summary (2026-05-19)
+
+### Session (2026-05-19) — spec review + RPM build workflow + first test run
+
+**ohpc-3.x and ohpc-4.x** (`tm-warewulf-4.7-3.x`, still uncommitted):
+
+- Spec review: fixed three issues from 2026-05-18 session
+  - `## OHPC:` comment inside `make defaults \` continuation silently dropped `LOCALSTATEDIR`, `SRVDIR`, and all subsequent args — moved comment to before the block
+  - `mig` overlay was inserted before `systemd.mount`/`systemd.swap`; restored to upstream order (after both)
+  - Added `## OHPC: upstream %%changelog removed` at end of spec
+- RPM build: first build of `warewulf-ohpc-4.7.0` using Lima (`rocky-9` instance); succeeded after comment fix
+
+**hpc-lab** (`main`):
+
+- New doc: `docs/rpm-build.md` — Lima-based RPM build workflow, path conventions, pitfalls
+- `CLAUDE.md`: updated Local Package Testing section with build steps and rpm-build.md reference
+- `hpc-lab/tests/` rebuilt from ohpc-3.x templates and copied
+- Test run attempted; **failing** — bugs from 4.7.0 upgrade changes, not yet diagnosed
+
+**Coordinator**:
+
+- `CLAUDE.md`: noted `## OHPC:` comment-in-make-continuation bug as spec authoring rule (in rpm-build.md)
+
+---
+
+## Last Session Summary (2026-05-18)
+
+### Session (2026-05-18) — warewulf 4.7.0 OHPC packaging + upstream DSA fix
+
+**ohpc-3.x and ohpc-4.x** (`tm-warewulf-4.7-3.x`, uncommitted):
+
+- Spec rebased on upstream `warewulf.spec.in`; OHPC delta consolidated and commented
+- Version bumped 4.6.5 → 4.7.0; `warewulf-4.5.x-sle_ipxe.patch` dropped (dead artifact)
+- Added `chrony` and `mig` overlays to `%files`
+- `warewulf-install.md.j2`: removed tftpboot creation + semanage/restorecon workarounds
+- `hpc-lab/tests/` rebuilt and diff verified clean
+
+**warewulf upstream** (`tm-dsa-8.x`, PR submitted):
+
+- Removed `dsa` from default ssh key types in `warewulf.conf`, `warewulf.conf-suse`, Go default
+- Updated `root_test.go`, `debug_test.go`; all tests pass on Lima (Rocky 9)
+- CHANGELOG and `userdocs/server/configuration.rst` updated
+
+**Coordinator**:
+
+- `CLAUDE.md`: added rule — never `git checkout` in sub-repos; use `git show <ref>:<path>`
+- `hpc-lab/PROCESS.md`: unchanged (rule belongs at coordinator level)
 
 ---
 

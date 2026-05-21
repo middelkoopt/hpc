@@ -16,11 +16,15 @@ All active repos live as independent git checkouts inside this directory.
 Each sub-repo has its own `.git/` and independent remotes. The coordinator `.gitignore`
 excludes them so `git status` here only shows coordinator files.
 
-## Key Rule
+## Key Rules
 
 Never commit directly to upstream tracking branches in `ohpc-3.x/`, `ohpc-4.x/`,
 `warewulf/`, or `warewulf-node-images/` without going through the upstream review process.
 Work on personal branches and submit PRs.
+
+Never run `git checkout` in a sub-repo without explicit confirmation — it changes branch/HEAD
+state that persists across sessions. To read a file at a tag or commit, use
+`git show <ref>:<path>` (e.g. `git show v4.7.0:warewulf.spec.in`).
 
 ## Context by Mode
 
@@ -44,8 +48,13 @@ User is an active Warewulf developer; the `middelkoopt` remote is the personal f
 - `ohpc-3.x/docs/install/DESIGN.md` — OpenHPC markdown docs system design (active branch)
 - `ohpc-4.x/docs/install/DESIGN.md` — same system, 4.x branch
 
+## RPM Spec Authoring Rules
+
+**Never place `## OHPC:` comments inside a `make ... \` continuation block.**
+Bash treats `#` after whitespace as a comment, silently terminating the joined line — all
+arguments after the comment are dropped and `make` never sees them. Place OHPC comments on
+their own line immediately before the `make` invocation.
+
 ## Pending
 
-- `hpc-lab/` remote still points to `ohpc-jetstream2` — needs updating to `middelkoopt/hpc-lab`
-- `hpc-lab/CLAUDE.md` header still says "ohpc-jetstream2" — update when convenient
 - Docs placement and content migration strategy between `ohpc-3.x` and `ohpc-4.x`
