@@ -55,12 +55,11 @@ commit the dirty Makefile changes + add Rocky CI entries, test, then open follow
 
 ---
 
-## Last Session Summary (2026-06-02)
+## Last Session Summary (2026-06-01)
 
-- Coordinator: added `.venv` + `requirements.txt` (pyyaml), `docs/tooling.md` (jq, yq, venv reference)
-- warewulf-node-images: refactored CI to native arm64 runners with dynamic matrix from `images.json`
-- Tested dual-arch build end-to-end; containers booted correctly on both arches
-- Two bugs found and fixed during testing: push/outputs conflict; missing `name=` in outputs
+- Fixed three latent bugs in `hpc-lab/playbooks/` (manifested on fresh Jetstream, hidden locally by `creates:` guards): Ansible `default(omit)` in `environment:` blocks, `image_dist` not passed to Ansible, shell template `warewulf-${dist}linux` wrong for almalinux
+- Added per-target `image_dist` field to all `[target.*]` sections in `run.ini`; updated docs
+- Confirmed `--target=almalinux-10 --workflow=warewulf` on Jetstream pulls correct image
 
 ---
 
@@ -73,43 +72,18 @@ commit the dirty Makefile changes + add Rocky CI entries, test, then open follow
 
 ---
 
-## Key Rules (carry forward)
+## Key Rules (session-specific reminders only)
 
-hpc-lab:
-
-- `tests/` scripts are generated — fix goes in `ohpc-3.x/docs/install/templates/`, rebuild+copy
-- Do NOT run `create.sh`, `create-net.sh`, `delete.sh`, `delete-net.sh` without confirmation
-- Do NOT push Terraform state files or `local.tfvars`
-- `config/run.ini` is TOML, not INI
-
-upstream repos:
-
-- Never commit to upstream tracking branches without PR
-- 3.x fixes do not need to be ported to 4.x in-session
-
-warewulf-node-images:
-
-- `sudo` required for `wwctl` — run test script as `sudo python3 ./test-warewulf-images.py`
-- Use `./run.py --workflow=warewulf` to spin up test cluster (not ohpc workflow)
-- Rocky Makefile edits (9.8/10.2) uncommitted — commit with CI entries together once Docker Hub publishes
-- `images.json` is the source of truth for CI matrix — edit it, not the workflow
-
----
-
-## Known Bugs / Quirks
-
-**Warewulf BIOS DHCP bug** — upstream fix needed; workaround in
-`hpc-lab/tests/rocky10-x86_64-warewulf-slurm.sh`. See `hpc-lab/docs/warewulf-bios-dhcp-bug.md`.
-
-**Proxy (mitmproxy)** — `hpc-lab/proxy/start-proxy.sh` / `stop-proxy.sh`.
-Full reference: `hpc-lab/docs/proxy.md`.
+- Rocky Makefile edits (`rockylinux-9/`, `rockylinux-10/`) uncommitted — commit with CI entries together once Docker Hub publishes `rockylinux:9.8` / `10.2`
+- `images.json` is the source of truth for CI matrix — edit it, not the workflow YAML directly
+- Permanent rules (create.sh, Terraform state, TOML format, upstream PRs) are in `hpc-lab/CLAUDE.md`
 
 ---
 
 ## Infrastructure State
 
 - **Local**: macOS aarch64, qemu via `hpc-lab/clouds/qemu/`
-- **Remote x86_64**: `jetstream.ini200001.projects.jetstream-cloud.org`
+- **Remote x86_64**: `jetstream.ini200001.projects.jetstream-cloud.org` — Ubuntu 24.04 VM running qemu; SSH configured in `~/.ssh/config`, connect with just the hostname
 - qemu cluster: status unknown — check before use
 - Proxy: check `hpc-lab/proxy/local.env`
 
@@ -118,24 +92,12 @@ Full reference: `hpc-lab/docs/proxy.md`.
 ## Quick Reference
 
 ```bash
-# Node image testing (from hpc-lab/)
-export CLOUD=qemu && source ./scripts/get-env.sh
-scp scripts/test-warewulf-images.py scripts/test-warewulf-images.json scp://$OHPC_USER@$OHPC_HEAD:$OHPC_PORT/
-ssh ssh://$OHPC_USER@$OHPC_HEAD:$OHPC_PORT
-sudo python3 ./test-warewulf-images.py --dry-run --os almalinux --fixed
-sudo python3 ./test-warewulf-images.py --os almalinux --fixed
+# Check Rocky dirty state (uncommitted 9.8/10.2 bumps)
+cd ~/projects/hpc/warewulf-node-images && git diff
 
-# SSH/SCP connection pattern (established codebase convention — confirmed working)
-# scp://user@host:port/  and  ssh ssh://user@host:port  are the project-standard forms.
-# Used in test-recipe-run.sh, ohpc-run.sh, wait.sh, warewulf-run.sh.
-# Do NOT switch to scp -P or bare ssh user@host — that would break consistency.
+# Warewulf workflow — see hpc-lab/CLAUDE.md for SSH/SCP and run.py patterns
+# Full image test reference: hpc-lab/docs/warewulf-image-tests.md
 
-# warewulf-node-images
-cd ~/projects/hpc/warewulf-node-images
-git log --oneline -5
-git diff   # check Rocky Makefile dirty state
-
-# Coordinator Python tools
-cd ~/projects/hpc
-.venv/bin/python3 .github/workflows/gen-matrix.py  # test matrix generation locally
+# Coordinator matrix tool
+cd ~/projects/hpc && .venv/bin/python3 .github/workflows/gen-matrix.py
 ```
