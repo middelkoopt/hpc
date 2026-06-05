@@ -13,10 +13,12 @@ before I start?" Do not open files or grep until the user has had a chance to sh
 
 ## Active Work
 
-**warewulf-node-images — two PRs in flight:**
+**warewulf-node-images — PRs / branches in flight:**
 
 1. `tm-update-almalinux` — AlmaLinux 9.8 / 10.2 update. PR open.
 2. `tm-image-build-use-aarch64-runners` — native arm64 CI + dynamic matrix. PR open (or ready to open).
+3. `tm-update-rocky` — Rocky 9.8 / 10.2 Makefile bumps. Committed, not yet pushed. Waiting on Docker Hub publishing `rockylinux/rockylinux:9.8` / `10.2` base images before opening PR.
+4. `tm-wait-online-image` — forces network fully up (`NetworkManager-wait-online`) in almalinux-9 and rockylinux-9 Containerfiles. Committed, not yet pushed.
 
 ### Branch `tm-image-build-use-aarch64-runners` — what changed
 
@@ -35,9 +37,7 @@ commit the dirty Makefile changes + add Rocky CI entries, test, then open follow
 
 ### Uncommitted State
 
-| Repo | Status |
-| ---- | ------ |
-| `warewulf-node-images/` | Rocky `rockylinux-9/Makefile` and `rockylinux-10/Makefile` dirty (9.8/10.2 bumps) — intentionally not staged |
+Working tree clean on all active branches.
 
 ---
 
@@ -74,7 +74,7 @@ commit the dirty Makefile changes + add Rocky CI entries, test, then open follow
 
 ## Key Rules (session-specific reminders only)
 
-- Rocky Makefile edits (`rockylinux-9/`, `rockylinux-10/`) uncommitted — commit with CI entries together once Docker Hub publishes `rockylinux:9.8` / `10.2`
+- Rocky Makefile bumps are on `tm-update-rocky` (not yet pushed) — add CI entries and open PR once Docker Hub publishes `rockylinux:9.8` / `10.2` base images
 - `images.json` is the source of truth for CI matrix — edit it, not the workflow YAML directly
 - Permanent rules (create.sh, Terraform state, TOML format, upstream PRs) are in `hpc-lab/CLAUDE.md`
 
