@@ -7,10 +7,12 @@ a cross-project task.
 
 ## Session Start
 
-Tell Claude: `continue with handoff-prompt.md`
+Just open the project — the SessionStart hook reads `handoff-prompt.md`, `docs/index.md`,
+`hpc-lab/CLAUDE.md`, and `hpc-lab/docs/index.md` automatically, then pauses and asks for
+new context before doing anything.
 
-Claude reads the handoff, then **pauses and asks** for any new context before investigating.
-Do not open files or grep until the user has had a chance to share new information.
+No "continue with handoff-prompt.md" needed. If the hook doesn't fire, say something
+task-oriented and it will follow the session-start directive.
 
 ---
 

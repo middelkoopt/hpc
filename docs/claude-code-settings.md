@@ -4,6 +4,31 @@ Permission patterns and settings notes specific to this workspace.
 
 ---
 
+## SessionStart Hook
+
+`.claude/hooks/session-start.sh` fires at every session start and injects a directive
+that forces Claude to read four files before any tool call:
+
+1. `handoff-prompt.md` — current session state
+2. `docs/index.md` — coordinator doc navigation
+3. `hpc-lab/CLAUDE.md` — infrastructure project context
+4. `hpc-lab/docs/index.md` — hpc-lab doc navigation
+
+After reading, Claude states what it read and asks for new context before doing anything.
+The user's opening question does NOT satisfy the context-ask — Claude must explicitly ask
+and wait for a response.
+
+**Key lessons from iteration (2026-06-05):**
+- The directive must explicitly say "do NOT run tool calls until the user responds" —
+  without it the model rationalizes skipping the pause ("the question is my context")
+- Always load `hpc-lab/CLAUDE.md` unconditionally; conditional logic based on classifying
+  the task is fragile and fails silently
+- This is intentionally hardcoded; replace with an `AGENTS.md` router when carcc-os matures
+
+The hook is wired in `.claude/settings.json` under `hooks.SessionStart`.
+
+---
+
 ## autoMemoryEnabled
 
 `autoMemoryEnabled: false` in `.claude/settings.json` disables the auto-memory system entirely
