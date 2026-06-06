@@ -1,6 +1,6 @@
 # Session Handoff — hpc coordinator
 
-To resume: open this file and tell Claude `continue with handoff-prompt.md`.
+To resume: just start a new session — the SessionStart hook reads this file automatically.
 
 ---
 
@@ -52,17 +52,17 @@ Review comments posted by user. TEMP sed patches removed, data/ cleared.
 
 ## Last Session Summary (2026-06-05)
 
-- Applied `autoMemoryEnabled: false` to `.claude/settings.json` (verified: MEMORY.md not loaded in new sessions)
-- Deleted all 5 stale memory files; MEMORY.md left as empty index
-- Updated `docs/claude-code-settings.md` with `autoMemoryEnabled` behavior
-- Updated `README.md` with pointer to settings doc (detail lives in doc, not README)
-- SSH permission patterns fixed (previous session); live validation still pending
+- SSH `**` wildcard fix in `.claude/settings.json` — verified working ✓
+- Added SessionStart hook (`.claude/hooks/session-start.sh`) — auto-reads handoff +
+  `docs/index.md` + `hpc-lab/CLAUDE.md` (if hpc-lab work); eliminates "continue with
+  handoff-prompt.md" ceremony. Hardcoded routing; replace with AGENTS.md when carcc-os matures.
+- Updated `docs/claude-code-settings.md`: `**` vs `*` gotcha documented
 
 ---
 
 ## Pending (hpc-lab)
 
-- **Test SSH approval settings** — patterns look correct but mid-session jq rewrite (adding `autoMemoryEnabled`) likely invalidated the session's loaded settings. Test in a **fresh session**: run `ssh ssh://cloud@localhost:8022 hostname` as first SSH command — should auto-approve without prompt. If it still prompts, the pattern syntax needs debugging.
+- **SessionStart hook** — verify in fresh session: open project, say something task-oriented (no "continue with..."), confirm hook fires and files are read before any tool call
 - openeuler-22.03 / warewulf3 / openpbs — next test target
 - openeuler-24.03: only warewulf+slurm in tests/; no openchami/confluent — intentional?
 - openEuler 4.x: COPR SP3 publish pending upstream (needed for yq)

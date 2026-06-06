@@ -45,8 +45,8 @@ The project file lives at `hpc/.claude/settings.json`.
 ```
 
 - `Bash(<pattern>)` — glob-match against the full command string
-- `*` at the end matches any suffix (including arguments with spaces)
-- `*` in the middle matches any sequence of characters
+- `**` matches any suffix including `/` — use this for commands that may contain paths
+- `*` does NOT match `/`; avoid it when the command or its arguments may contain slashes
 - **Pattern must match the exact command string** — flag order matters
 
 ---
@@ -74,9 +74,12 @@ The scripts call `ssh ssh://...` with no `-o` flag, so this pattern never matche
 Correct patterns (currently in `.claude/settings.json`):
 
 ```json
-"Bash(ssh ssh://cloud@localhost:8022 *)",
-"Bash(scp * scp://cloud@localhost:8022*)"
+"Bash(ssh ssh://cloud@localhost:8022 **)",
+"Bash(scp ** scp://cloud@localhost:8022**)"
 ```
+
+**Use `**` not `*` when the pattern contains `://`** — the glob engine splits on `/`, so `*`
+fails to match across the URI. `**` matches everything including slashes. Verified 2026-06-05.
 
 ---
 
