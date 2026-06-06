@@ -23,13 +23,6 @@ Both PRs verified end-to-end on aarch64 qemu (AlmaLinux 9 / AlmaLinux 10):
 
 Review comments posted by user. TEMP sed patches removed, data/ cleared.
 
-Remaining: restore ohpc branch state (both repos still on `test/pr-*` branches):
-
-```bash
-cd ~/projects/hpc/ohpc-3.x && git checkout tm-openeuler-openpbs-3.x
-cd ~/projects/hpc/ohpc-4.x && git checkout main
-```
-
 ---
 
 **warewulf-node-images — PRs / branches in flight:**
@@ -47,8 +40,8 @@ cd ~/projects/hpc/ohpc-4.x && git checkout main
 
 | Repo | Branch |
 | ---- | ------ |
-| `ohpc-3.x/` | `test/pr-2598` (PR review/test branch — **not upstream work branch**) |
-| `ohpc-4.x/` | `test/pr-2599` (PR review/test branch — **not upstream work branch**) |
+| `ohpc-3.x/` | `tm-openeuler-openpbs-3.x` |
+| `ohpc-4.x/` | `main` |
 | `warewulf/` | `tm-dsa-8.x` (PR submitted) |
 | `warewulf-node-images/` | `tm-image-build-use-aarch64-runners` (active) |
 | `hpc-lab/` | `main` |
@@ -59,17 +52,17 @@ cd ~/projects/hpc/ohpc-4.x && git checkout main
 
 ## Last Session Summary (2026-06-05)
 
-- PRs #2598 and #2599 fully tested and verified; review comments posted
-- Key finding: `chrony.conf.ww` is in `examples-ohpc` (`examples.spec`), not `docs-ohpc`
-- Created `hpc-lab/docs/index.md` and `docs/index.md`
-- Updated `ohpc-pr-testing.md`, `rpm-build.md`, `recipe-testing.md`: correct spec, image upgrade step, tmux console debugging, srun verification
-- Created `hpc/.claude/settings.json` with project-level allowlist (takes effect next session)
+- Applied `autoMemoryEnabled: false` to `.claude/settings.json` (verified: MEMORY.md not loaded in new sessions)
+- Deleted all 5 stale memory files; MEMORY.md left as empty index
+- Updated `docs/claude-code-settings.md` with `autoMemoryEnabled` behavior
+- Updated `README.md` with pointer to settings doc (detail lives in doc, not README)
+- SSH permission patterns fixed (previous session); live validation still pending
 
 ---
 
 ## Pending (hpc-lab)
 
-- Restore ohpc branch state (see above)
+- **Test SSH approval settings** — patterns look correct but mid-session jq rewrite (adding `autoMemoryEnabled`) likely invalidated the session's loaded settings. Test in a **fresh session**: run `ssh ssh://cloud@localhost:8022 hostname` as first SSH command — should auto-approve without prompt. If it still prompts, the pattern syntax needs debugging.
 - openeuler-22.03 / warewulf3 / openpbs — next test target
 - openeuler-24.03: only warewulf+slurm in tests/; no openchami/confluent — intentional?
 - openEuler 4.x: COPR SP3 publish pending upstream (needed for yq)

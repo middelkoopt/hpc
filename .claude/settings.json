@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(ssh -o StrictHostKeyChecking=no ssh://cloud@localhost:8022 *)",
+      "Bash(ssh ssh://cloud@localhost:8022 *)",
+      "Bash(scp * scp://cloud@localhost:8022*)",
       "Bash(ssh jetstream.ini200001.projects.jetstream-cloud.org *)",
       "Bash(scp * jetstream.ini200001.projects.jetstream-cloud.org:*)",
       "Bash(limactl shell *)",
@@ -30,5 +31,6 @@
       "Bash(git fetch *)",
       "WebFetch(*)"
     ]
-  }
+  },
+  "autoMemoryEnabled": false
 }
