@@ -1,0 +1,30 @@
+2026-07-13 23:35:01 -0300 | Vinícius Ferrão | c3e0844ca | docs/install: make the xCAT stateless edition explicit (xcat -> xcat_stateless)
+2026-07-13 14:38:00 -0300 | Vinícius Ferrão | 9c924445a | change psh/pdsh to xdsh
+2026-07-11 20:19:16 -0300 | Vinícius Ferrão | 6174f367a | docs/install: add xCAT (stateless) provisioner with rocky10/almalinux10 recipes
+2026-07-09 16:22:42 -0500 | Miguel Dias Costa | 30a27e1eb | add note about naming of IB interface to the documentation about adding nodes using warewulf
+2026-06-08 18:59:12 +0200 | Timothy Middelkoop | c24f07766 | docs(openeuler): clarify COPR repo purpose in repos.md.j2
+2026-06-08 18:59:12 +0200 | Timothy Middelkoop | ee693428e | OpenCHAMI backports from 3.x
+2026-06-08 18:59:12 +0200 | Timothy Middelkoop | 8b4ea41fd | Confluent updates backported from 3.x
+2026-06-05 18:37:50 -0500 | Mike Renfro | 40638debe | improve time sync for non-UTC systems
+2026-05-23 14:56:33 +0200 | Timothy Middelkoop | e75019d4f | Update Warewulf to 4.7.0
+2026-04-26 11:22:30 +0200 | Timothy Middelkoop | 2f760dcb1 | Upgrade OpenCHAMI
+2026-04-24 09:30:13 +0200 | Adrian Reber | 8f5993398 | docs: add manifest and changelog targets to Makefile
+2026-04-24 09:30:13 +0200 | Adrian Reber | 6f14473b5 | docs: add changelog generation script
+2026-04-22 09:08:59 +0200 | Adrian Reber | 4742a8cb6 | docs: update manifests for 4.1
+2026-04-20 14:08:57 +0200 | Adrian Reber | d9683b0f4 | docs: improve package manifest table formatting
+2026-04-20 12:10:27 +0200 | Adrian Reber | cb46b19d4 | ci: add docs/install Python scripts to ruff lint targets
+2026-04-12 17:59:32 +0200 | Adrian Reber | f1a2ce7ff | tests: consolidate .gitignore into single top-level file
+2026-03-25 17:49:08 +0100 | Timothy Middelkoop | fd4785944 | warewulf: openEuler support fixes
+2026-03-23 13:20:14 +0100 | Timothy Middelkoop | 372270eca | Default to use dnf over yum
+2026-03-20 08:20:17 +0100 | Timothy Middelkoop | 31893715a | Patch for OpennCHAMI support on aarch64
+2026-03-19 16:46:33 +0100 | Timothy Middelkoop | 96920a62d | Complete Confluent aarch64 support
+2026-03-10 20:02:42 -0500 | Adrian Reber | a9c3e45bc | docs: fix glob expansion in OpenCHAMI compute_echo macro
+2026-03-08 11:29:25 +0100 | Timothy Middelkoop | 2e51a1d3b | Test infrastructure updates
+2026-03-06 10:41:13 +0100 | Adrian Reber | ff963cc50 | docs: add md.j2 files to trailing whitespace scanning
+2026-03-06 08:10:34 +0100 | Timothy Middelkoop | ce0574846 | Add package install for the nfs-server service
+2026-03-04 17:27:44 +0100 | Adrian Reber | 5489beb4f | docs: run nhc setup on head node
+2026-03-04 08:52:02 +0100 | Adrian Reber | ed6f0ece6 | docs: actually install the default meta package
+2026-03-03 17:41:14 +0100 | Adrian Reber | 34e844657 | docs: add missing '"'
+2026-03-03 14:43:27 +0100 | Timothy Middelkoop | 78865bdef | Add proxy and node reset placeholder markers
+2026-02-27 23:16:20 +0100 | Timothy Middelkoop | 35779ded6 | Report line number by section for long lines
+2026-02-26 14:30:22 +0100 | Timothy Middelkoop | 3707edeba | docs/install: replace LaTeX recipes with Markdown/Jinja2 documentation system

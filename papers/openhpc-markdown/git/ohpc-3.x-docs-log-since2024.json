@@ -1,0 +1,440 @@
+[
+  {
+    "date": "2026-06-05T18:38:18-05:00",
+    "author": "Mike Renfro",
+    "hash": "0c1053a39",
+    "subject": "improve time sync for non-UTC systems"
+  },
+  {
+    "date": "2026-06-05T11:59:08+02:00",
+    "author": "Adrian Reber",
+    "hash": "9b4bceb78",
+    "subject": "docs: update 3.5 manifests"
+  },
+  {
+    "date": "2026-06-05T11:59:08+02:00",
+    "author": "Adrian Reber",
+    "hash": "d5155a187",
+    "subject": "docs: show newest version in generated manifest tables"
+  },
+  {
+    "date": "2026-06-05T11:59:08+02:00",
+    "author": "Adrian Reber",
+    "hash": "e5db43965",
+    "subject": "docs: update GPG signing key in Package Signatures"
+  },
+  {
+    "date": "2026-05-19T22:38:05+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "be463e970",
+    "subject": "Update to Warewulf 4.7.0"
+  },
+  {
+    "date": "2026-05-17T16:37:32+02:00",
+    "author": "Adrian Reber",
+    "hash": "4688732ca",
+    "subject": "docs: delete latex documentation, everything is working with markdown"
+  },
+  {
+    "date": "2026-05-14T22:50:33+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "1867b6a61",
+    "subject": "fix(warewulf3): assemble VNFS after optional customization steps"
+  },
+  {
+    "date": "2026-05-14T17:16:12Z",
+    "author": "Adrian Reber",
+    "hash": "015fe0ab5",
+    "subject": "docs: install the release package with zypper on leap"
+  },
+  {
+    "date": "2026-05-12T13:52:13Z",
+    "author": "Adrian Reber",
+    "hash": "4b1f6d188",
+    "subject": "docs: move compute marker after the chroot directory creation"
+  },
+  {
+    "date": "2026-05-12T13:23:24Z",
+    "author": "Adrian Reber",
+    "hash": "b6f9944eb",
+    "subject": "docs: add \"ohpc_proxy:compute\" marker for warewulf3"
+  },
+  {
+    "date": "2026-05-11T07:55:34+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "f6551e085",
+    "subject": "fix(leap15): correct warewulf3 recipe for Leap 15 deployment"
+  },
+  {
+    "date": "2026-05-11T07:54:39+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "19020df1f",
+    "subject": "OpenPBS fixes"
+  },
+  {
+    "date": "2026-05-08T14:47:07+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "b571b1dbe",
+    "subject": "fix(openeuler): correct Warewulf3 recipes"
+  },
+  {
+    "date": "2026-05-01T08:51:46+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "26c40dc70",
+    "subject": "Allow a single node for openpbs"
+  },
+  {
+    "date": "2026-05-01T08:49:30+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "e01b2537e",
+    "subject": "Fixes for OpenCHAMI on 3.x"
+  },
+  {
+    "date": "2026-04-30T07:52:37+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "27846c35f",
+    "subject": "Update Confluent to use the latest Rocky 9"
+  },
+  {
+    "date": "2026-04-29T10:30:33+02:00",
+    "author": "Adrian Reber",
+    "hash": "05d5121a2",
+    "subject": "Consolidate scattered .gitignore files into one"
+  },
+  {
+    "date": "2026-04-29T07:56:56+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "22182c33f",
+    "subject": "docs: port installation guide from LaTeX to Markdown/Jinja2"
+  },
+  {
+    "date": "2026-04-26T16:46:25+02:00",
+    "author": "Mike Renfro",
+    "hash": "56c5238b0",
+    "subject": "fix invalid slurm_node_config values"
+  },
+  {
+    "date": "2025-10-30T17:02:01+01:00",
+    "author": "Adrian Reber",
+    "hash": "de6570315",
+    "subject": "docs: update manifests"
+  },
+  {
+    "date": "2025-10-29T09:59:20+01:00",
+    "author": "Adrian Reber",
+    "hash": "060ee0727",
+    "subject": "docs: rewrite vc script and add proper Makefile targets for LaTeX builds"
+  },
+  {
+    "date": "2025-10-28T09:48:40Z",
+    "author": "Adrian Reber",
+    "hash": "6693ada67",
+    "subject": "docs: fix line continuation in combination with confluent"
+  },
+  {
+    "date": "2025-10-28T08:56:26Z",
+    "author": "Adrian Reber",
+    "hash": "53610b746",
+    "subject": "docs: one more try to fix confluent profile names"
+  },
+  {
+    "date": "2025-10-28T08:15:33Z",
+    "author": "Adrian Reber",
+    "hash": "3c840699a",
+    "subject": "docs: fix confluent profile name handling"
+  },
+  {
+    "date": "2025-10-27T18:29:29Z",
+    "author": "Adrian Reber",
+    "hash": "c237bf752",
+    "subject": "docs: use version-less confluent profile name"
+  },
+  {
+    "date": "2025-10-27T15:20:28+01:00",
+    "author": "Adrian Reber",
+    "hash": "b4e93aa69",
+    "subject": "docs: switch confluent to always use *latest*iso"
+  },
+  {
+    "date": "2025-10-27T15:02:26+01:00",
+    "author": "Adrian Reber",
+    "hash": "5d88677c1",
+    "subject": "docs: remove unused xcat recipes"
+  },
+  {
+    "date": "2025-10-22T19:07:46+02:00",
+    "author": "Adrian Reber",
+    "hash": "4229b0699",
+    "subject": "Switching to gnu15 compiler variant"
+  },
+  {
+    "date": "2025-10-16T17:41:55+02:00",
+    "author": "Adrian Reber",
+    "hash": "2cdbc9beb",
+    "subject": "docs: add performance tools section to installation recipes"
+  },
+  {
+    "date": "2025-10-15T15:04:38+02:00",
+    "author": "Adrian Reber",
+    "hash": "71038b908",
+    "subject": "docs: remove GEOPM references from installation recipes"
+  },
+  {
+    "date": "2025-10-12T16:32:48+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "64ec4c95a",
+    "subject": "Upgrade Warewulf to v4.6.4"
+  },
+  {
+    "date": "2025-09-11T11:19:31+02:00",
+    "author": "Travis Powell",
+    "hash": "d6b618fc8",
+    "subject": "Add support for OpenCHAMI"
+  },
+  {
+    "date": "2025-07-30T09:50:42+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "5e43fc7ad",
+    "subject": "Fix Warewulf documentation typos"
+  },
+  {
+    "date": "2025-07-17T08:27:10+02:00",
+    "author": "Adrian Reber",
+    "hash": "39847bfaf",
+    "subject": "feat(warewulf): add templates and patches for warewulf"
+  },
+  {
+    "date": "2025-07-15T10:13:39+02:00",
+    "author": "Adrian Reber",
+    "hash": "52c6a348b",
+    "subject": "refactor(docs): use overlay import for hostfile modification"
+  },
+  {
+    "date": "2025-07-15T10:13:39+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "62ba0732f",
+    "subject": "fix(docs): update aarch64 install guides and spec file"
+  },
+  {
+    "date": "2025-07-15T10:13:39+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "eb75d5d06",
+    "subject": "feat(docs): add almalinux9 and rocky9 aarch64 warewulf4 slurm recipe"
+  },
+  {
+    "date": "2025-07-01T12:22:59+02:00",
+    "author": "Adrian Reber",
+    "hash": "09ab12cce",
+    "subject": "ci: extend running codespell on docs/recipes"
+  },
+  {
+    "date": "2025-06-01T18:53:55+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "6ec755395",
+    "subject": "Fix OpenHPC version and other documentation fixes"
+  },
+  {
+    "date": "2025-05-04T13:22:09+02:00",
+    "author": "Adrian Reber",
+    "hash": "89d2efce9",
+    "subject": "docs: update 3.3 manifests"
+  },
+  {
+    "date": "2025-03-31T08:08:14+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "527d8f1eb",
+    "subject": "Configure NetworkManager-wait-online to wait for network to be up"
+  },
+  {
+    "date": "2025-03-27T15:29:06Z",
+    "author": "Adrian Reber",
+    "hash": "188750d7f",
+    "subject": "docs: use BOSVER for the warewulf4 image name"
+  },
+  {
+    "date": "2025-03-27T14:49:39+01:00",
+    "author": "Adrian Reber",
+    "hash": "65b014555",
+    "subject": "docs: also add nvidia GPU installation to ww4/alma"
+  },
+  {
+    "date": "2025-03-27T09:28:49+01:00",
+    "author": "Adrian Reber",
+    "hash": "94d2ff941",
+    "subject": "docs: using nvhpc no additional /usr/local mount is needed"
+  },
+  {
+    "date": "2025-03-27T08:08:27+01:00",
+    "author": "Adrian Reber",
+    "hash": "775ce7437",
+    "subject": "docs: switch nvidia installation to nvhpc"
+  },
+  {
+    "date": "2025-03-25T09:48:59+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "32e9ca545",
+    "subject": "Fix the use of netname and set netdev for Warewulf4"
+  },
+  {
+    "date": "2025-03-25T09:32:21+01:00",
+    "author": "Adrian Reber",
+    "hash": "4429a018a",
+    "subject": "docs: add AlmaLinux support to confluent provisioner"
+  },
+  {
+    "date": "2025-03-25T09:32:21+01:00",
+    "author": "Adrian Reber",
+    "hash": "43c0dce82",
+    "subject": "docs: add nvidia driver steps to warewulf4 recipe"
+  },
+  {
+    "date": "2025-03-20T15:09:57+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "442f7c1aa",
+    "subject": "Revert static UID/GID for Munge not needed with updated AlmaLinux image"
+  },
+  {
+    "date": "2025-03-20T14:57:02+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "49a4a01a1",
+    "subject": "Reformat modification of /etc/hosts.ww"
+  },
+  {
+    "date": "2025-03-19T14:01:36+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "067980ae7",
+    "subject": "Add AlmaLinux Warewulf4 with Slurm on x86_64 recipe."
+  },
+  {
+    "date": "2025-03-19T14:01:36+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "21bac12c8",
+    "subject": "Copy Warewulf4/Rocky to Warewulf4/AlmaLinux"
+  },
+  {
+    "date": "2025-03-19T14:01:36+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "57e638a5e",
+    "subject": "Substitute commands inside for loops in parse_doc.pl"
+  },
+  {
+    "date": "2025-03-19T09:41:27+01:00",
+    "author": "Adrian Reber",
+    "hash": "2e83841fd",
+    "subject": "docs: handle /etc/host and dhcpd configuration with warewulf4"
+  },
+  {
+    "date": "2025-03-18T11:55:20+01:00",
+    "author": "Adrian Reber",
+    "hash": "2c31b3442",
+    "subject": "docs: add cudarepo to parse_doc.pl"
+  },
+  {
+    "date": "2025-03-18T10:17:44+01:00",
+    "author": "Adrian Reber",
+    "hash": "3421ae4f4",
+    "subject": "docs: remove trailing whitespaces"
+  },
+  {
+    "date": "2025-03-18T09:18:56+01:00",
+    "author": "Adrian Reber",
+    "hash": "13bfdef88",
+    "subject": "docs: escape '_' in latex"
+  },
+  {
+    "date": "2025-03-18T08:59:44+01:00",
+    "author": "Adrian Reber",
+    "hash": "a44f1f6a6",
+    "subject": "docs: also install cuda tools on SMS"
+  },
+  {
+    "date": "2025-03-17T17:54:01+01:00",
+    "author": "Adrian Reber",
+    "hash": "e9e41d5e3",
+    "subject": "docs: enable dkms for GPU driver"
+  },
+  {
+    "date": "2025-03-17T16:36:53+01:00",
+    "author": "Adrian Reber",
+    "hash": "6367d17c3",
+    "subject": "docs: add nvidia gpu driver chapter"
+  },
+  {
+    "date": "2025-03-17T15:20:00+01:00",
+    "author": "Adrian Reber",
+    "hash": "98ad79284",
+    "subject": "docs: couple of minor fixes for the confluent recipe"
+  },
+  {
+    "date": "2025-03-17T13:55:13Z",
+    "author": "Timothy Middelkoop",
+    "hash": "ba2456347",
+    "subject": "Upgrade Warewulf 4 documentation to 4.6.x"
+  },
+  {
+    "date": "2025-03-17T14:12:44+01:00",
+    "author": "Adrian Reber",
+    "hash": "d0a8b320c",
+    "subject": "docs: remove outdated centos8 directory"
+  },
+  {
+    "date": "2024-12-10T21:40:57+01:00",
+    "author": "Graham",
+    "hash": "36c82c421",
+    "subject": "added upquote=true to syslog.tex"
+  },
+  {
+    "date": "2024-11-07T18:41:40+01:00",
+    "author": "Adrian Reber",
+    "hash": "5926e6bab",
+    "subject": "Update manifests for 3.2"
+  },
+  {
+    "date": "2024-11-01T15:16:24+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "8e2f91bd5",
+    "subject": "Add default networking to node profiles"
+  },
+  {
+    "date": "2024-10-31T14:24:29+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "f31ad45c4",
+    "subject": "Stateless Warewulf 4.5 on Rocky 9.4 with Slurm for x86_64"
+  },
+  {
+    "date": "2024-10-25T09:36:29+02:00",
+    "author": "Adrian Reber",
+    "hash": "1877b428c",
+    "subject": "docs: fix line continuation"
+  },
+  {
+    "date": "2024-10-18T12:51:46+02:00",
+    "author": "Navaneet Villodi",
+    "hash": "d731775a2",
+    "subject": "rsyslog: use new syntax in conf"
+  },
+  {
+    "date": "2024-10-17T17:37:21+02:00",
+    "author": "tkucherera",
+    "hash": "7db68ddbe",
+    "subject": "Statefull Rocky 9.4 Base OS Confluent/Slurm Edition for Linux Recipe to support using Confluent as a system manager and provisioner. When setting up an ohpc cluster."
+  },
+  {
+    "date": "2024-10-11T11:07:02+02:00",
+    "author": "Martin Tzvetanov Grigorov",
+    "hash": "a6631b256",
+    "subject": "powerman: Remove the spec and the documentation for powerman"
+  },
+  {
+    "date": "2024-09-27T11:31:14+02:00",
+    "author": "Adrian Reber",
+    "hash": "fcf0074d6",
+    "subject": "docs: update version to 3.2"
+  },
+  {
+    "date": "2024-09-27T11:31:14+02:00",
+    "author": "Adrian Reber",
+    "hash": "6e3ff4837",
+    "subject": "docs: switch to gnu14"
+  }
+]

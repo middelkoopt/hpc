@@ -1,0 +1,17 @@
+2026-06-05 18:38:18 -0500 | Mike Renfro | 0c1053a39 | improve time sync for non-UTC systems
+2026-06-05 11:59:08 +0200 | Adrian Reber | 9b4bceb78 | docs: update 3.5 manifests
+2026-06-05 11:59:08 +0200 | Adrian Reber | d5155a187 | docs: show newest version in generated manifest tables
+2026-06-05 11:59:08 +0200 | Adrian Reber | e5db43965 | docs: update GPG signing key in Package Signatures
+2026-05-19 22:38:05 +0200 | Timothy Middelkoop | be463e970 | Update to Warewulf 4.7.0
+2026-05-14 22:50:33 +0200 | Timothy Middelkoop | 1867b6a61 | fix(warewulf3): assemble VNFS after optional customization steps
+2026-05-14 17:16:12 +0000 | Adrian Reber | 015fe0ab5 | docs: install the release package with zypper on leap
+2026-05-12 13:52:13 +0000 | Adrian Reber | 4b1f6d188 | docs: move compute marker after the chroot directory creation
+2026-05-12 13:23:24 +0000 | Adrian Reber | b6f9944eb | docs: add "ohpc_proxy:compute" marker for warewulf3
+2026-05-11 07:55:34 +0200 | Timothy Middelkoop | f6551e085 | fix(leap15): correct warewulf3 recipe for Leap 15 deployment
+2026-05-11 07:54:39 +0200 | Timothy Middelkoop | 19020df1f | OpenPBS fixes
+2026-05-08 14:47:07 +0200 | Timothy Middelkoop | b571b1dbe | fix(openeuler): correct Warewulf3 recipes
+2026-05-01 08:51:46 +0200 | Timothy Middelkoop | 26c40dc70 | Allow a single node for openpbs
+2026-05-01 08:49:30 +0200 | Timothy Middelkoop | e01b2537e | Fixes for OpenCHAMI on 3.x
+2026-04-30 07:52:37 +0200 | Timothy Middelkoop | 27846c35f | Update Confluent to use the latest Rocky 9
+2026-04-29 10:30:33 +0200 | Adrian Reber | 05d5121a2 | Consolidate scattered .gitignore files into one
+2026-04-29 07:56:56 +0200 | Timothy Middelkoop | 22182c33f | docs: port installation guide from LaTeX to Markdown/Jinja2

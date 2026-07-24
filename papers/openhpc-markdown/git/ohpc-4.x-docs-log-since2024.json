@@ -1,0 +1,746 @@
+[
+  {
+    "date": "2026-07-13T23:35:01-03:00",
+    "author": "Vinícius Ferrão",
+    "hash": "c3e0844ca",
+    "subject": "docs/install: make the xCAT stateless edition explicit (xcat -> xcat_stateless)"
+  },
+  {
+    "date": "2026-07-13T14:38:00-03:00",
+    "author": "Vinícius Ferrão",
+    "hash": "9c924445a",
+    "subject": "change psh/pdsh to xdsh"
+  },
+  {
+    "date": "2026-07-11T20:19:16-03:00",
+    "author": "Vinícius Ferrão",
+    "hash": "6174f367a",
+    "subject": "docs/install: add xCAT (stateless) provisioner with rocky10/almalinux10 recipes"
+  },
+  {
+    "date": "2026-07-09T16:22:42-05:00",
+    "author": "Miguel Dias Costa",
+    "hash": "30a27e1eb",
+    "subject": "add note about naming of IB interface to the documentation about adding nodes using warewulf"
+  },
+  {
+    "date": "2026-06-08T18:59:12+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "c24f07766",
+    "subject": "docs(openeuler): clarify COPR repo purpose in repos.md.j2"
+  },
+  {
+    "date": "2026-06-08T18:59:12+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "ee693428e",
+    "subject": "OpenCHAMI backports from 3.x"
+  },
+  {
+    "date": "2026-06-08T18:59:12+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "8b4ea41fd",
+    "subject": "Confluent updates backported from 3.x"
+  },
+  {
+    "date": "2026-06-05T18:37:50-05:00",
+    "author": "Mike Renfro",
+    "hash": "40638debe",
+    "subject": "improve time sync for non-UTC systems"
+  },
+  {
+    "date": "2026-05-23T14:56:33+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "e75019d4f",
+    "subject": "Update Warewulf to 4.7.0"
+  },
+  {
+    "date": "2026-04-26T11:22:30+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "2f760dcb1",
+    "subject": "Upgrade OpenCHAMI"
+  },
+  {
+    "date": "2026-04-24T09:30:13+02:00",
+    "author": "Adrian Reber",
+    "hash": "8f5993398",
+    "subject": "docs: add manifest and changelog targets to Makefile"
+  },
+  {
+    "date": "2026-04-24T09:30:13+02:00",
+    "author": "Adrian Reber",
+    "hash": "6f14473b5",
+    "subject": "docs: add changelog generation script"
+  },
+  {
+    "date": "2026-04-22T09:08:59+02:00",
+    "author": "Adrian Reber",
+    "hash": "4742a8cb6",
+    "subject": "docs: update manifests for 4.1"
+  },
+  {
+    "date": "2026-04-20T14:08:57+02:00",
+    "author": "Adrian Reber",
+    "hash": "d9683b0f4",
+    "subject": "docs: improve package manifest table formatting"
+  },
+  {
+    "date": "2026-04-20T12:10:27+02:00",
+    "author": "Adrian Reber",
+    "hash": "cb46b19d4",
+    "subject": "ci: add docs/install Python scripts to ruff lint targets"
+  },
+  {
+    "date": "2026-04-19T13:20:06+02:00",
+    "author": "Adrian Reber",
+    "hash": "cf392c942",
+    "subject": "docs: remove latex based documentation"
+  },
+  {
+    "date": "2026-04-12T18:33:37+02:00",
+    "author": "Adrian Reber",
+    "hash": "ecc5d8314",
+    "subject": "docs: remove poc-markdown proof of concept"
+  },
+  {
+    "date": "2026-04-12T17:59:32+02:00",
+    "author": "Adrian Reber",
+    "hash": "f1a2ce7ff",
+    "subject": "tests: consolidate .gitignore into single top-level file"
+  },
+  {
+    "date": "2026-03-25T17:49:08+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "fd4785944",
+    "subject": "warewulf: openEuler support fixes"
+  },
+  {
+    "date": "2026-03-23T13:20:14+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "372270eca",
+    "subject": "Default to use dnf over yum"
+  },
+  {
+    "date": "2026-03-20T08:20:17+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "31893715a",
+    "subject": "Patch for OpennCHAMI support on aarch64"
+  },
+  {
+    "date": "2026-03-19T16:46:33+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "96920a62d",
+    "subject": "Complete Confluent aarch64 support"
+  },
+  {
+    "date": "2026-03-10T20:02:42-05:00",
+    "author": "Adrian Reber",
+    "hash": "a9c3e45bc",
+    "subject": "docs: fix glob expansion in OpenCHAMI compute_echo macro"
+  },
+  {
+    "date": "2026-03-08T11:29:25+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "2e51a1d3b",
+    "subject": "Test infrastructure updates"
+  },
+  {
+    "date": "2026-03-06T10:41:13+01:00",
+    "author": "Adrian Reber",
+    "hash": "ff963cc50",
+    "subject": "docs: add md.j2 files to trailing whitespace scanning"
+  },
+  {
+    "date": "2026-03-06T08:10:34+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "ce0574846",
+    "subject": "Add package install for the nfs-server service"
+  },
+  {
+    "date": "2026-03-04T17:27:44+01:00",
+    "author": "Adrian Reber",
+    "hash": "5489beb4f",
+    "subject": "docs: run nhc setup on head node"
+  },
+  {
+    "date": "2026-03-04T08:52:02+01:00",
+    "author": "Adrian Reber",
+    "hash": "ed6f0ece6",
+    "subject": "docs: actually install the default meta package"
+  },
+  {
+    "date": "2026-03-03T17:41:14+01:00",
+    "author": "Adrian Reber",
+    "hash": "34e844657",
+    "subject": "docs: add missing '\"'"
+  },
+  {
+    "date": "2026-03-03T14:43:27+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "78865bdef",
+    "subject": "Add proxy and node reset placeholder markers"
+  },
+  {
+    "date": "2026-02-27T23:16:20+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "35779ded6",
+    "subject": "Report line number by section for long lines"
+  },
+  {
+    "date": "2026-02-26T14:30:22+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "3707edeba",
+    "subject": "docs/install: replace LaTeX recipes with Markdown/Jinja2 documentation system"
+  },
+  {
+    "date": "2026-02-07T12:03:13+01:00",
+    "author": "Adrian Reber",
+    "hash": "0c7a02159",
+    "subject": "docs: splitting URLs breaks the recipe"
+  },
+  {
+    "date": "2026-02-06T17:10:28+01:00",
+    "author": "Adrian Reber",
+    "hash": "1d85f11d2",
+    "subject": "Add AlmaLinux 10 Confluent/Slurm markdown documentation variant"
+  },
+  {
+    "date": "2026-02-05T16:41:56+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "3939000d7",
+    "subject": "Update Markdown docs for Warewulf v4.6.5"
+  },
+  {
+    "date": "2026-02-05T14:51:33+01:00",
+    "author": "Adrian Reber",
+    "hash": "75739adf5",
+    "subject": "Use markdown-based docs for rocky10/almalinux10 x86_64 warewulf4 variants"
+  },
+  {
+    "date": "2026-02-05T14:51:33+01:00",
+    "author": "Adrian Reber",
+    "hash": "3b7b5c75f",
+    "subject": "Fix all shellcheck warnings except SC2129"
+  },
+  {
+    "date": "2026-02-05T14:51:33+01:00",
+    "author": "Adrian Reber",
+    "hash": "978cc64fa",
+    "subject": "Fix shellcheck SC2086 warnings by quoting variables in templates"
+  },
+  {
+    "date": "2026-02-05T14:51:33+01:00",
+    "author": "Adrian Reber",
+    "hash": "ad29d48b3",
+    "subject": "Move Makefile to common and create symlinks from recipe directories"
+  },
+  {
+    "date": "2026-02-05T14:51:33+01:00",
+    "author": "Adrian Reber",
+    "hash": "889de9392",
+    "subject": "Add optional shellcheck validation to recipe.sh generation"
+  },
+  {
+    "date": "2026-02-05T14:51:33+01:00",
+    "author": "Adrian Reber",
+    "hash": "5921a160f",
+    "subject": "Remove unused --ci_run parameter and ohpc_ci_comment support"
+  },
+  {
+    "date": "2026-02-05T14:51:33+01:00",
+    "author": "Adrian Reber",
+    "hash": "1b05b68a9",
+    "subject": "Apply indentation to code block commands inside if/fi blocks"
+  },
+  {
+    "date": "2026-02-05T14:51:33+01:00",
+    "author": "Adrian Reber",
+    "hash": "6653e8ce5",
+    "subject": "Remove unused config parameter from parse_doc_md.py"
+  },
+  {
+    "date": "2026-02-05T14:51:33+01:00",
+    "author": "Adrian Reber",
+    "hash": "654f4eabe",
+    "subject": "Add automatic 2-space indentation for if/else/fi blocks in parse_doc_md.py"
+  },
+  {
+    "date": "2026-02-05T14:51:33+01:00",
+    "author": "Adrian Reber",
+    "hash": "8aae98eb6",
+    "subject": "Remove redundant _substitute_variables() function from parse_doc_md.py"
+  },
+  {
+    "date": "2026-02-05T14:51:33+01:00",
+    "author": "Adrian Reber",
+    "hash": "1e3b88ea1",
+    "subject": "Update proof-of-concept documentation to reflect current state"
+  },
+  {
+    "date": "2026-02-05T14:51:33+01:00",
+    "author": "Adrian Reber",
+    "hash": "bf52aa150",
+    "subject": "Add AlmaLinux-specific repository configuration to markdown docs"
+  },
+  {
+    "date": "2026-02-05T14:51:33+01:00",
+    "author": "Adrian Reber",
+    "hash": "9b7d9efa3",
+    "subject": "Remove duplicate configuration variables in markdown documentation"
+  },
+  {
+    "date": "2026-02-05T14:51:33+01:00",
+    "author": "Adrian Reber",
+    "hash": "8ffa25354",
+    "subject": "Add AlmaLinux 10 markdown-based documentation"
+  },
+  {
+    "date": "2026-02-05T14:51:33+01:00",
+    "author": "Adrian Reber",
+    "hash": "077f4e19d",
+    "subject": "Add proof-of-concept markdown-based documentation system"
+  },
+  {
+    "date": "2026-02-05T09:28:29+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "01858ab16",
+    "subject": "Upgrade install recipe for Warewulf v4.6.5"
+  },
+  {
+    "date": "2025-10-29T22:46:32+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "a266dc4e7",
+    "subject": "Add 4.x badge"
+  },
+  {
+    "date": "2025-10-25T07:00:25+02:00",
+    "author": "Adrian Reber",
+    "hash": "11c5ff595",
+    "subject": "Add GNU compiler update checking and weekly schedule"
+  },
+  {
+    "date": "2025-10-21T12:01:38+02:00",
+    "author": "Adrian Reber",
+    "hash": "c351daada",
+    "subject": "docs: update manifests"
+  },
+  {
+    "date": "2025-10-18T12:25:44+02:00",
+    "author": "Adrian Reber",
+    "hash": "02d390331",
+    "subject": "docs: switch to official release RPM"
+  },
+  {
+    "date": "2025-10-15T12:36:25+02:00",
+    "author": "Adrian Reber",
+    "hash": "b83e5829a",
+    "subject": "docs: modernize and optimize listohpc script with CI integration"
+  },
+  {
+    "date": "2025-10-15T09:45:15Z",
+    "author": "Adrian Reber",
+    "hash": "29d8233ab",
+    "subject": "docs: update listohpc for 4.x series distribution support"
+  },
+  {
+    "date": "2025-10-15T07:54:17Z",
+    "author": "Adrian Reber",
+    "hash": "d184bc849",
+    "subject": "docs: remove old documentation"
+  },
+  {
+    "date": "2025-10-14T11:24:28+02:00",
+    "author": "Adrian Reber",
+    "hash": "e91a92f95",
+    "subject": "ci: replace flake8 with ruff for Python linting and formatting"
+  },
+  {
+    "date": "2025-10-13T09:03:48+02:00",
+    "author": "Adrian Reber",
+    "hash": "9c2f60c9c",
+    "subject": "docs: remove one '%' too many"
+  },
+  {
+    "date": "2025-10-13T08:29:08+02:00",
+    "author": "Adrian Reber",
+    "hash": "a25daea47",
+    "subject": "docs: rewrite vc script and add proper Makefile targets for LaTeX builds"
+  },
+  {
+    "date": "2025-10-13T08:29:08+02:00",
+    "author": "Adrian Reber",
+    "hash": "afaa0ecfe",
+    "subject": "Add Python port of parse_doc.pl with comprehensive test suite"
+  },
+  {
+    "date": "2025-10-12T17:48:57+02:00",
+    "author": "zhihang",
+    "hash": "97602f189",
+    "subject": "docs: add openEuler 24.03 support for Warewulf 4 in OpenHPC 4.x (aarch64 only)"
+  },
+  {
+    "date": "2025-10-10T17:03:35+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "8f68db326",
+    "subject": "Add enable_dracut for Warewulf one-stage testing"
+  },
+  {
+    "date": "2025-10-10T07:57:45+02:00",
+    "author": "Adrian Reber",
+    "hash": "ed2c1e7a4",
+    "subject": "docs: add AlmaLinux 10 support for OpenCHAMI and replace hardcoded URLs"
+  },
+  {
+    "date": "2025-10-10T07:57:45+02:00",
+    "author": "Adrian Reber",
+    "hash": "60a308e76",
+    "subject": "docs: add \\baseurl and \\OS macro support to parse_doc.pl"
+  },
+  {
+    "date": "2025-10-07T13:40:55+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "c5c36b8b7",
+    "subject": "Add Warewulf two-stage boot using Dracut (tmpfs and provision-to-disk)"
+  },
+  {
+    "date": "2025-10-07T13:40:00+02:00",
+    "author": "Adrian Reber",
+    "hash": "91b040f4a",
+    "subject": "Add support for OpenCHAMI (4.x)"
+  },
+  {
+    "date": "2025-10-02T09:07:46Z",
+    "author": "Adrian Reber",
+    "hash": "785255398",
+    "subject": "docs: forgot the \"install\" in \"dnf install\""
+  },
+  {
+    "date": "2025-10-02T10:12:29+02:00",
+    "author": "Adrian Reber",
+    "hash": "0089f2afe",
+    "subject": "cuda: update nvhpc version and improve documentation"
+  },
+  {
+    "date": "2025-09-30T17:10:26+02:00",
+    "author": "Adrian Reber",
+    "hash": "3c0509386",
+    "subject": "docs: use almalinux and not rocky as compute node image"
+  },
+  {
+    "date": "2025-09-25T15:07:07+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "1d5cbeee2",
+    "subject": "Warewulf 4 images no longer tigger firstboot"
+  },
+  {
+    "date": "2025-09-25T12:46:45+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "37235032b",
+    "subject": "Add AlmaLinux 10 recipe for Warewulf 4 and Slurm"
+  },
+  {
+    "date": "2025-09-25T12:46:45+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "60bd165a6",
+    "subject": "Copy warewulf4/slurm for Rocky 10 to AlmaLinux 10"
+  },
+  {
+    "date": "2025-09-22T14:58:54+02:00",
+    "author": "Adrian Reber",
+    "hash": "f44743f26",
+    "subject": "docs: add internal_network variable validation in Warewulf4 intro"
+  },
+  {
+    "date": "2025-09-22T07:54:21+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "6daa5a34d",
+    "subject": "Fix starting Warewulf4 wwclient"
+  },
+  {
+    "date": "2025-09-22T07:54:21+02:00",
+    "author": "Adrian Reber",
+    "hash": "9b358e020",
+    "subject": "docs: update Warewulf4 Rocky10 recipe and provisioning intro"
+  },
+  {
+    "date": "2025-09-22T07:54:21+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "d4e5617fd",
+    "subject": "Add EL10/Warewulf/Slurm recipe"
+  },
+  {
+    "date": "2025-09-22T07:54:21+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "3eb1ea658",
+    "subject": "Copy Rocky9 to Rocky10 for Warewulf 4.x/Slurm"
+  },
+  {
+    "date": "2025-08-03T13:34:19+02:00",
+    "author": "Adrian Reber",
+    "hash": "d0283a60f",
+    "subject": "docs: update default compiler family from gnu14 to gnu15"
+  },
+  {
+    "date": "2025-08-03T11:30:14+02:00",
+    "author": "Adrian Reber",
+    "hash": "56587ea1c",
+    "subject": "feat(docs): add AlmaLinux 10 installation recipes"
+  },
+  {
+    "date": "2025-08-03T11:30:14+02:00",
+    "author": "Adrian Reber",
+    "hash": "5fa0bf27a",
+    "subject": "docs: standardize variable naming by replacing OSREPO with OSTREE"
+  },
+  {
+    "date": "2025-08-03T11:30:14+02:00",
+    "author": "Adrian Reber",
+    "hash": "72345db25",
+    "subject": "feat(docs): add OSTag variable support to parse_doc.pl"
+  },
+  {
+    "date": "2025-07-30T09:51:13+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "924bcf956",
+    "subject": "Fix Warewulf documentation typos"
+  },
+  {
+    "date": "2025-07-17T06:49:59Z",
+    "author": "Adrian Reber",
+    "hash": "16e16c531",
+    "subject": "feat(warewulf): add templates and patches for warewulf"
+  },
+  {
+    "date": "2025-07-17T06:49:35Z",
+    "author": "Adrian Reber",
+    "hash": "3d9fe10c0",
+    "subject": "refactor(docs): use overlay import for hostfile modification"
+  },
+  {
+    "date": "2025-07-15T13:56:47Z",
+    "author": "Timothy Middelkoop",
+    "hash": "486bee284",
+    "subject": "docs: Add aarch64 support to Warewulf4"
+  },
+  {
+    "date": "2025-07-15T13:56:34Z",
+    "author": "Timothy Middelkoop",
+    "hash": "589482129",
+    "subject": "Copy AlmaLinux and Rocky Linux recipes from x86_64 to aarch64"
+  },
+  {
+    "date": "2025-07-01T12:22:59+02:00",
+    "author": "Adrian Reber",
+    "hash": "09ab12cce",
+    "subject": "ci: extend running codespell on docs/recipes"
+  },
+  {
+    "date": "2025-06-01T18:53:55+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "6ec755395",
+    "subject": "Fix OpenHPC version and other documentation fixes"
+  },
+  {
+    "date": "2025-05-04T13:22:09+02:00",
+    "author": "Adrian Reber",
+    "hash": "89d2efce9",
+    "subject": "docs: update 3.3 manifests"
+  },
+  {
+    "date": "2025-03-31T08:08:14+02:00",
+    "author": "Timothy Middelkoop",
+    "hash": "527d8f1eb",
+    "subject": "Configure NetworkManager-wait-online to wait for network to be up"
+  },
+  {
+    "date": "2025-03-27T15:29:06Z",
+    "author": "Adrian Reber",
+    "hash": "188750d7f",
+    "subject": "docs: use BOSVER for the warewulf4 image name"
+  },
+  {
+    "date": "2025-03-27T14:49:39+01:00",
+    "author": "Adrian Reber",
+    "hash": "65b014555",
+    "subject": "docs: also add nvidia GPU installation to ww4/alma"
+  },
+  {
+    "date": "2025-03-27T09:28:49+01:00",
+    "author": "Adrian Reber",
+    "hash": "94d2ff941",
+    "subject": "docs: using nvhpc no additional /usr/local mount is needed"
+  },
+  {
+    "date": "2025-03-27T08:08:27+01:00",
+    "author": "Adrian Reber",
+    "hash": "775ce7437",
+    "subject": "docs: switch nvidia installation to nvhpc"
+  },
+  {
+    "date": "2025-03-25T09:48:59+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "32e9ca545",
+    "subject": "Fix the use of netname and set netdev for Warewulf4"
+  },
+  {
+    "date": "2025-03-25T09:32:21+01:00",
+    "author": "Adrian Reber",
+    "hash": "4429a018a",
+    "subject": "docs: add AlmaLinux support to confluent provisioner"
+  },
+  {
+    "date": "2025-03-25T09:32:21+01:00",
+    "author": "Adrian Reber",
+    "hash": "43c0dce82",
+    "subject": "docs: add nvidia driver steps to warewulf4 recipe"
+  },
+  {
+    "date": "2025-03-20T15:09:57+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "442f7c1aa",
+    "subject": "Revert static UID/GID for Munge not needed with updated AlmaLinux image"
+  },
+  {
+    "date": "2025-03-20T14:57:02+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "49a4a01a1",
+    "subject": "Reformat modification of /etc/hosts.ww"
+  },
+  {
+    "date": "2025-03-19T14:01:36+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "067980ae7",
+    "subject": "Add AlmaLinux Warewulf4 with Slurm on x86_64 recipe."
+  },
+  {
+    "date": "2025-03-19T14:01:36+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "21bac12c8",
+    "subject": "Copy Warewulf4/Rocky to Warewulf4/AlmaLinux"
+  },
+  {
+    "date": "2025-03-19T14:01:36+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "57e638a5e",
+    "subject": "Substitute commands inside for loops in parse_doc.pl"
+  },
+  {
+    "date": "2025-03-19T09:41:27+01:00",
+    "author": "Adrian Reber",
+    "hash": "2e83841fd",
+    "subject": "docs: handle /etc/host and dhcpd configuration with warewulf4"
+  },
+  {
+    "date": "2025-03-18T11:55:20+01:00",
+    "author": "Adrian Reber",
+    "hash": "2c31b3442",
+    "subject": "docs: add cudarepo to parse_doc.pl"
+  },
+  {
+    "date": "2025-03-18T10:17:44+01:00",
+    "author": "Adrian Reber",
+    "hash": "3421ae4f4",
+    "subject": "docs: remove trailing whitespaces"
+  },
+  {
+    "date": "2025-03-18T09:18:56+01:00",
+    "author": "Adrian Reber",
+    "hash": "13bfdef88",
+    "subject": "docs: escape '_' in latex"
+  },
+  {
+    "date": "2025-03-18T08:59:44+01:00",
+    "author": "Adrian Reber",
+    "hash": "a44f1f6a6",
+    "subject": "docs: also install cuda tools on SMS"
+  },
+  {
+    "date": "2025-03-17T17:54:01+01:00",
+    "author": "Adrian Reber",
+    "hash": "e9e41d5e3",
+    "subject": "docs: enable dkms for GPU driver"
+  },
+  {
+    "date": "2025-03-17T16:36:53+01:00",
+    "author": "Adrian Reber",
+    "hash": "6367d17c3",
+    "subject": "docs: add nvidia gpu driver chapter"
+  },
+  {
+    "date": "2025-03-17T15:20:00+01:00",
+    "author": "Adrian Reber",
+    "hash": "98ad79284",
+    "subject": "docs: couple of minor fixes for the confluent recipe"
+  },
+  {
+    "date": "2025-03-17T13:55:13Z",
+    "author": "Timothy Middelkoop",
+    "hash": "ba2456347",
+    "subject": "Upgrade Warewulf 4 documentation to 4.6.x"
+  },
+  {
+    "date": "2025-03-17T14:12:44+01:00",
+    "author": "Adrian Reber",
+    "hash": "d0a8b320c",
+    "subject": "docs: remove outdated centos8 directory"
+  },
+  {
+    "date": "2024-12-10T21:40:57+01:00",
+    "author": "Graham",
+    "hash": "36c82c421",
+    "subject": "added upquote=true to syslog.tex"
+  },
+  {
+    "date": "2024-11-07T18:41:40+01:00",
+    "author": "Adrian Reber",
+    "hash": "5926e6bab",
+    "subject": "Update manifests for 3.2"
+  },
+  {
+    "date": "2024-11-01T15:16:24+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "8e2f91bd5",
+    "subject": "Add default networking to node profiles"
+  },
+  {
+    "date": "2024-10-31T14:24:29+01:00",
+    "author": "Timothy Middelkoop",
+    "hash": "f31ad45c4",
+    "subject": "Stateless Warewulf 4.5 on Rocky 9.4 with Slurm for x86_64"
+  },
+  {
+    "date": "2024-10-25T09:36:29+02:00",
+    "author": "Adrian Reber",
+    "hash": "1877b428c",
+    "subject": "docs: fix line continuation"
+  },
+  {
+    "date": "2024-10-18T12:51:46+02:00",
+    "author": "Navaneet Villodi",
+    "hash": "d731775a2",
+    "subject": "rsyslog: use new syntax in conf"
+  },
+  {
+    "date": "2024-10-17T17:37:21+02:00",
+    "author": "tkucherera",
+    "hash": "7db68ddbe",
+    "subject": "Statefull Rocky 9.4 Base OS Confluent/Slurm Edition for Linux Recipe to support using Confluent as a system manager and provisioner. When setting up an ohpc cluster."
+  },
+  {
+    "date": "2024-10-11T11:07:02+02:00",
+    "author": "Martin Tzvetanov Grigorov",
+    "hash": "a6631b256",
+    "subject": "powerman: Remove the spec and the documentation for powerman"
+  },
+  {
+    "date": "2024-09-27T11:31:14+02:00",
+    "author": "Adrian Reber",
+    "hash": "fcf0074d6",
+    "subject": "docs: update version to 3.2"
+  },
+  {
+    "date": "2024-09-27T11:31:14+02:00",
+    "author": "Adrian Reber",
+    "hash": "6e3ff4837",
+    "subject": "docs: switch to gnu14"
+  }
+]

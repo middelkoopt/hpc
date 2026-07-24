@@ -1,0 +1,87 @@
+[
+  {
+    "session": "22baa9c5-606c-42c7-ab11-3c824b4c9e4d",
+    "cwd": "/Users/tmiddelkoop/projects/hpc",
+    "git_branch": "main",
+    "first_ts": "2026-07-09T16:42:28.558Z",
+    "last_ts": "2026-07-09T17:00:43.112Z",
+    "models": [
+      "claude-opus-4-8"
+    ],
+    "tokens": {
+      "input": 5854,
+      "output": 14545,
+      "cache_creation": 55632,
+      "cache_read": 509463,
+      "requests": 12
+    },
+    "messages": {
+      "user_prompts": 8,
+      "assistant_turns": 28,
+      "assistant_text": 10,
+      "thinking_blocks": 10,
+      "tool_results": 8
+    },
+    "tool_calls": {
+      "total": 8,
+      "by_name": {
+        "AskUserQuestion": 1,
+        "Bash": 1,
+        "Read": 6
+      }
+    },
+    "record_types": {
+      "ai-title": 4,
+      "assistant": 28,
+      "attachment": 6,
+      "file-history-snapshot": 8,
+      "last-prompt": 4,
+      "queue-operation": 16,
+      "user": 16
+    }
+  },
+  {
+    "session": "cf4d7f62-a415-4450-8255-a28d5f0c3eb5",
+    "cwd": "/Users/tmiddelkoop/projects/hpc/ohpc-4.x",
+    "git_branch": "main",
+    "first_ts": "2026-07-24T15:28:17.310Z",
+    "last_ts": "2026-07-24T15:57:32.019Z",
+    "models": [
+      "claude-opus-4-8"
+    ],
+    "tokens": {
+      "input": 59,
+      "output": 44814,
+      "cache_creation": 140812,
+      "cache_read": 2822598,
+      "requests": 32
+    },
+    "messages": {
+      "user_prompts": 3,
+      "assistant_turns": 93,
+      "assistant_text": 24,
+      "thinking_blocks": 30,
+      "tool_results": 38
+    },
+    "tool_calls": {
+      "total": 39,
+      "by_name": {
+        "AskUserQuestion": 1,
+        "Bash": 27,
+        "Edit": 1,
+        "Read": 8,
+        "Write": 2
+      }
+    },
+    "record_types": {
+      "ai-title": 14,
+      "assistant": 93,
+      "attachment": 9,
+      "file-history-delta": 2,
+      "file-history-snapshot": 3,
+      "last-prompt": 13,
+      "queue-operation": 6,
+      "user": 42
+    }
+  }
+]
