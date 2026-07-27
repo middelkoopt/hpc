@@ -60,13 +60,27 @@ recipes (Confluent/OpenCHAMI/Warewulf). Full per-commit data: `git/*-docs-log-si
 
 | | 4.x (before → after) | 3.x (before → after) |
 |---|---|---|
-| Recipe source files | 316 `.tex` → 151 `.md.j2` | 379 `.tex` → 160 `.md.j2` |
+| Recipe source files | 316 `.tex` → **136** `.md.j2` templates at cutover (151 today, +xCAT) | 379 `.tex` → 160 `.md.j2` |
 | Recipe source lines | 17,871 `.tex` → 5,341 `.md.j2` | 29,653 `.tex` → 6,072 `.md.j2` |
 | Build engine | 5 `.pl` / 1,196 lines → 4 `.py` / 1,461 lines | 5 `.pl` / 1,184 → 4 `.py` / 1,485 |
 
-The headline: **Jinja2 templating + config inheritance collapsed the per-combination LaTeX
-duplication** (one `.tex` tree per distro × arch × provisioner × scheduler) into ~half the files and
-roughly a third of the source lines, with build logic moving from Perl to Python.
+The headline line: **"316 LaTeX files → 136 Markdown templates"** (4.x, at the Feb-2026 cutover; 151
+today after xCAT was added). Fewer than half.
+
+**Verified basis (4.x, `cf392c942^` old vs `3707edeba` new):**
+
+- The 316 `.tex` are **all real files — 0 symlinks.** The count is not symlink-inflated.
+- Of the 316, **284 are distinct contents** (only **32 byte-identical** copies). So this was
+  *near*-duplication, not mass exact-copying: the same install steps re-copied per
+  distro × arch × provisioner combination, differing only slightly — and **some copies had drifted
+  into stale, older variants**. Jinja2 macros (`compute_install/sed/echo/run`) + config inheritance
+  collapse those variants into one shared template each. (So phrase it as collapsing near-duplicate
+  *variants*, not "deleting identical files.")
+- The old **"symlink hell" was separate scaffolding: 23 symlinks** wiring `common/`, `Makefile`, and
+  `manifest` into every recipe directory — the `../../../../common/parse_doc.pl` problem. The `.tex`
+  content files themselves were never symlinked.
+- Do **not** use the "~95% of duplicated files re-merged" line (Tim's Slack estimate) as the headline
+  — it's a different, softer metric; kept verbatim only in `narrative/raw-notes.md`.
 
 ## 4. Migration milestone diff magnitudes
 

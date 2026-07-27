@@ -7,9 +7,9 @@ Stats to convey the scale of the work for the talk. All git/GitHub-verified (202
 | | |
 |---|---|
 | Source converted | **LaTeX + Perl + Makefiles → Markdown + Jinja2 + Python** |
-| Recipe source (4.x) | 316 `.tex` files (17,871 ln) → **151 `.md.j2` (5,341 ln)** |
+| Recipe source (4.x) | **316 `.tex` files → 136 `.md.j2` templates** at cutover (151 today, +xCAT); 17,871 → 5,341 ln |
 | Recipe source (3.x) | 379 `.tex` files (29,653 ln) → **160 `.md.j2` (6,072 ln)** |
-| Duplication removed | **~95% of duplicated files re-merged** (author's estimate) |
+| De-duplication | 316 real `.tex` (284 distinct — near-duplicate variants, some stale/older) collapsed into 136 shared templates via macros + config inheritance |
 | Build engine | 5 Perl scripts (~1,190 ln) → 4 Python (~1,460 ln), `mkdoc.py` core |
 | Python deps | reduced to **jinja2 + pyyaml only** (no jinja-cli) |
 | Working recipes | **44 total** (16 in 4.x + 28 in 3.x) |

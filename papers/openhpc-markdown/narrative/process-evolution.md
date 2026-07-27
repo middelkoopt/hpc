@@ -12,11 +12,90 @@ The talk's central process lesson, reconstructed from the **`hpc-lab` git histor
 - Commit cadence then spikes in exactly the LLM-coding weeks: **W09 (13), W10 (9), W11 (23)** in
   March, **W18 (15), W19 (29)** in May — the "coding with Claude between naps" bursts.
 
-## Stage 1 — Compacting era (Feb–Apr 2026)
+## Stage 1 — Compacting era (Feb 2026)
 
 Design-heavy refactoring. Per the usage stats: **44 compactions across 5 sessions, concentrated in
 the design phase.** Context was held in the live window and repeatedly compacted; losing state to
 compaction was the pain that drove everything after.
+
+## Stage 1.5 — Durable context = committed `docs/`, and fresh sessions (from ~Feb 23)
+
+The move off pure compacting was **not** a handoff file — it was **committing knowledge to a `docs/`
+tree and starting fresh sessions** that read it back. Operator's recollection, evidence-confirmed in
+the **hpc-lab** repo:
+
+- The `docs/` reference tree begins **2026-02-23/24** (`openchami-reference.md`, `configuration.md`) —
+  the same moment LLM work starts (`5744d3d` "Add LLM code support", 2026-02-24) — and keeps
+  accumulating through Mar–Apr (infiniband, chameleoncloud, cloudlab, confluent, proxy).
+- The **first CLAUDE.md (Feb 24) did *not* index the docs** — it was project rules only. So early on
+  the durable store was the committed `docs/` themselves; a fresh session simply read them.
+- On the OpenHPC side the same instinct produced **`DESIGN.md`** — a 738-line pure design-rationale
+  doc (recovered commit `a2596ef37`, 2026-02-19), which Adrian leaned on throughout the PR review.
+  The ohpc repos **never** had a handoff file.
+
+So the Feb pattern was: **write it into `docs/` (or `DESIGN.md`) → start a fresh session → read it →
+continue.** "Docs are the source of truth" in its earliest, *implicit* form — months before the
+ritual was named.
+
+**What May 7 actually added (Stage 2) was two things on top of the docs, not a replacement for them:**
+a **"## Key Docs" index** in the rewritten CLAUDE.md (a session-entry pointer into `docs/`), and a
+`handoff-prompt.md` for the thin *active-state* layer ("what am I doing right now") that a static doc
+tree doesn't hold. The docs stayed the source of truth; the handoff was the ephemeral top layer.
+
+**Verified corrections:** `CLAUDE.md` never carried the handoff (zero handoff/session language across
+its history); the machine-local `~/.claude/.../memory/MEMORY.md` also held a "## Current State"
+(stamps 2026-02-22 → 04-27) but was a secondary/scratch store, later demoted by PROCESS.md.
+
+### DESIGN.md churn signature (the evidence)
+
+Pre-squash authoring (recovered via GitHub force-push tips):
+
+| Date | Change | Note |
+|---|---|---|
+| Feb 5 | **+421 / −0** | created **day 0** with the POC import |
+| Feb 19 | +146 / −79 | the intensive design push — real deletions = rethinking |
+| Feb 19 | +58 / −12 | reformat + cleanup |
+| Feb 22 | +14 / −0 | Confluent |
+| Feb 24 | +25 / −36 | tracks the pandoc→Makefile / venv-removal review changes |
+| Feb 24 | +5 / −5 | rename sections→templates |
+
+≈537 lines at cutover. Committed after: Feb 26 squash **+551**, Mar 3 **+181/−0** (proxy/reset
+markers), Jul **+17/−11** & **+4/−4** (xcat). **Final 738 lines; only −15 deleted across its whole
+committed life.** Signature: **front-loaded → churned during design → append-only after** — the
+fingerprint of a durable design artifact, the inverse of handoff-prompt.md's net-zero
+churn-every-session.
+
+**What the content proves** (read of the saved DESIGN.md; snapshot at
+`product/new-markdown/DESIGN.md.at-cutover-2026-02-26.md`):
+
+- **Goal #1, verbatim, on day 0:** *"Make documentation easier to edit and contribute to."* The
+  contribution thesis was the *stated design goal* from Feb 5 — not a retro-narrative.
+- **It absorbed debugging findings.** DESIGN.md carries a subsection titled **"Usage rules (learned
+  from debugging)"** — macro gotchas (tilde doesn't expand in double-quoted shell; single-quote echo
+  for runtime `${var}`; sed regex quoting). So debug knowledge flowed *back into the design doc* —
+  textual proof DESIGN.md was **living durable context during debugging**, not just a design-phase
+  artifact.
+- **The clever core it documents:** one Markdown source → both rendered PDF/HTML *and* an extracted
+  runnable `recipe.sh` (HTML-comment markers `ohpc_begin/command/if_set/fi`, invisible in output) —
+  the clean-substrate successor to the old `parse_doc.pl` LaTeX-parses-shell trick — plus the
+  `compute_*` macro abstraction (Warewulf-chroot / Confluent-nodeshell / OpenCHAMI-yq / xCAT-chroot)
+  that is the actual mechanism behind the ~95% de-duplication.
+
+### Debugging phase — the debug-state docs (the pattern's clearest form)
+
+Debugging leaned on durable docs even harder, in two layers:
+
+- **Machine-local debug-state docs** — `confluent-debug.md` ("## STATUS: Cluster fully validated ✓
+  (2026-02-22)" + "All Fixes Applied") and `openchami-debug.md` ("## STATUS: SSH + Slurm WORKING
+  (2026-02-23) — 3 more template fixes needed"). Each is **STATUS line + fixes-applied + what's-left**
+  — a *debug handoff*, months before handoff-prompt.md named the pattern.
+- **Committed gotcha/reference docs** in hpc-lab `docs/` — infiniband (Mar 8), chameleoncloud
+  (Mar 9), cloudlab (Mar 15), confluent (Mar 18), proxy (Apr 5), then the May 7 batch (openeuler,
+  warewulf-bios-dhcp-bug, ipxe-images…) — the distilled, permanent form of hard-won debugging facts.
+
+Across phases the *kind* of durable doc tracks the work: **design → DESIGN.md; debugging →
+debug-state + gotcha docs.** The debug docs' STATUS+pending convention is exactly what
+handoff-prompt.md later generalized into a per-session ritual.
 
 ## Stage 2 — Handoff invented (2026-05-07, a single day)
 
@@ -100,5 +179,5 @@ process artifact is a scar from a specific pain:
 4. **Knowledge dumped in the nearest file rotted** → **level each fact** (handoff = now, CLAUDE.md =
    rules, docs/ = reference).
 
-Arc in one line: **compact → handoff → commit → level → automate.** The doc refactor was the crucible;
+Arc in one line: **compact → machine-local MEMORY.md → committed handoff → level → automate.** The doc refactor was the crucible;
 the workflow was the byproduct — and arguably the more transferable result.
