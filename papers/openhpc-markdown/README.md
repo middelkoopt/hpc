@@ -5,6 +5,20 @@ documentation from a **Perl + LaTeX** build system to a **Python + Jinja2 / Mark
 (OpenHPC 4.x, then backported to 3.x). This directory collects the raw, reconstructable evidence in
 one place; analysis/prose comes in a later phase.
 
+## Status — talk delivered (2026-07-29), paper is next
+
+The **PEARC26 OpenHPC BoF talk shipped** (Minneapolis, 2026-07-29). The **outward-facing joint deck**
+(Google Slides `1OfNnrtIcrFJhKRSWiqjMiR7DNsqUKGZ6WidmrJ2n03Q`, "OpenHPC Community BoF — TM1", with
+Simmons/Middelkoop/Renfro) was the one presented; **slide 8** is Tim's whole docs+CI/CD segment
+(pasted into PowerPoint from that deck). The detailed **scratch/notes deck**
+(`1drnnmLBdNaGi7faduPYxJx7FOX8JEEaS05cfW-dNzkU`) was working material, now superseded.
+
+**For a future session (the eventual longer paper):** start from `story/longform.md` (full narrative
+draft) + everything in `narrative/`. All figures here are git/PR-verified — reuse them, don't
+re-derive. `narrative/ci-cd.md` was the last addition (CI/CD research: OpenHPC's Actions pipeline, the
+QEMU-cluster integration test, Tim's placeholder markers `78865bdef`, and his Warewulf CI work in
+PRs 95 and 1804). This ingest/talk phase is **done**.
+
 ## ⚠️ The transcript gap (know this before using the data)
 
 The migration ran **Feb–May 2026**. The **agent transcripts** we intended to mine (tool calls,
