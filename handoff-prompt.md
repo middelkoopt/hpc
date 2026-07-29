@@ -63,10 +63,16 @@ Both PRs verified end-to-end on aarch64 qemu. Review comments posted.
 
 1. `tm-update-almalinux` — AlmaLinux 9.8 / 10.2 update. PR open.
 2. `tm-image-build-use-aarch64-runners` — native arm64 CI + dynamic matrix. PR open (or ready to open).
-3. `tm-update-rocky` — Rocky 9.8 / 10.2 Makefile bumps. Committed, not yet pushed. Waiting on Docker Hub publishing `rockylinux/rockylinux:9.8` / `10.2` base images before opening PR.
+3. `tm-update-rocky` — Rocky 9.8 / 10.2 Makefile bumps. **TESTED ✓** (2026-06-18). PR ready to open.
 4. `tm-wait-online-image` — forces network fully up (`NetworkManager-wait-online`) in almalinux-9 and rockylinux-9 Containerfiles. Committed, not yet pushed.
 
-**Rocky Linux**: once Docker Hub publishes `rockylinux:9.8` / `10.2`, add CI entries to `images.json` and open PR.
+**Rocky Linux testing complete (2026-06-18):** All images from `ghcr.io/middelkoopt/` passed on aarch64 qemu:
+
+- Latest: `rocky:9` (9.8), `rocky:10` (10.2) — PASS
+- Fixed: `rocky:9.6`, `9.7`, `9.8`, `10.0`, `10.1`, `10.2` — PASS
+- Skipped (aarch64 not supported): `rocky:8`, `8.9`, `8.10`
+
+`test-warewulf-images.json` updated: rocky:9 expects 9.8, rocky:10 expects 10.2, fixed entries for 9.8 and 10.2 added.
 
 ---
 
